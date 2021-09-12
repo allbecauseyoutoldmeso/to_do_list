@@ -1,7 +1,17 @@
 en:
+  to_dos:
+    index:
+      new_to_do: New To-Do
+  helpers:
+    submit:
+      to_do:
+        create: Add To-Do
   simple_form:
     "yes": 'Yes'
     "no": 'No'
+    labels:
+      to_do:
+        task: Task
     required:
       text: 'required'
       mark: '*'

@@ -1,0 +1,6 @@
+<ul>
+  <% @to_dos.each do |to_do| %>
+    <li><%= to_do.task %></li>
+  <% end %>
+</ul>
+<%= link_to(t('to_dos.index.new_to_do'), new_to_do_path) %>

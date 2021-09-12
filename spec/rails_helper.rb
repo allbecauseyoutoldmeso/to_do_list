@@ -7,6 +7,7 @@ if Rails.env.production?
 end
 
 require 'rspec/rails'
+require 'support/factory_bot'
 
 RSpec.configure do |config|
   config.use_active_record = false
