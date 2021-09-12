@@ -3,18 +3,19 @@ en:
   helpers:
     submit:
       to_do:
-        create: Add To-Do
+        create: Add ToDo
   simple_form:
     error_notification:
       default_message: 'Please review the problems below:'
-    labels:
-      to_do:
-        task: Task
     'no': 'No'
     required:
-      mark: "*"
+      mark: ''
       text: required
     'yes': 'Yes'
   to_dos:
     index:
-      new_to_do: New To-Do
+      new_to_do: New ToDo
+      title: ToDos
+    new:
+      back: Back
+      title: New ToDo
