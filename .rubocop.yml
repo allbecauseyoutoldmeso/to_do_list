@@ -1,0 +1,14 @@
+AllCops:
+  Exclude:
+    - 'config/**/*'
+    - 'bin/**/*'
+Style/Documentation:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*

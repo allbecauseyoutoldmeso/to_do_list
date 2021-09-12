@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ToDosController < ApplicationController
   def index
     @to_dos = ToDo.all
