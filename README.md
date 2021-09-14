@@ -1,24 +1,11 @@
-# README
+# ToDos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Lightweight lists app built using Rails and Stimulus.
 
-Things you may want to cover:
+## Running Locally
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Clone and `cd` into this repository.
+* Run `bundle install`.
+* Run `rspec` to check that the tests are passing.
+* Run `rubocop` to check that the code is ship-shape.
+* Run `bin/rails server` and go to `http://localhost:3000/`.
