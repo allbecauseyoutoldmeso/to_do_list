@@ -1,6 +1,0 @@
-<h1><%= t('to_dos.new.title') %></h1>
-<%= simple_form_for(@to_do) do |form| %>
-  <%= form.input(:task, label: false) %>
-  <%= form.submit %>
-<% end %>
-<%= link_to(t('to_dos.new.back'), to_dos_path) %>

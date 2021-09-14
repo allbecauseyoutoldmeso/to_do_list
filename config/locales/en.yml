@@ -16,6 +16,3 @@ en:
     index:
       new_to_do: New ToDo
       title: ToDos
-    new:
-      back: Back
-      title: New ToDo

@@ -2,20 +2,17 @@
 
 require 'rails_helper'
 
-feature 'adding a to-do' do
+feature 'adding a to-do', js: true do
   scenario 'user successfully adds a to-do' do
     task = 'Walk the dog'
     visit(root_path)
-    click_link(I18n.t('to_dos.index.new_to_do'))
-    fill_in(I18n.t('simple_form.labels.to_do.task'), with: task)
+    fill_in('to_do_task', with: task)
     click_button(I18n.t('helpers.submit.to_do.create'))
-    expect(page.current_path).to eq(to_dos_path)
-    expect(page).to have_content(task)
+    expect(page).to have_selector('li', text: task)
   end
 
-  scenario 'user submits form without taks' do
+  xscenario 'user submits form without task' do
     visit(root_path)
-    click_link(I18n.t('to_dos.index.new_to_do'))
     click_button(I18n.t('helpers.submit.to_do.create'))
     expect(page).to have_content(I18n.t('errors.messages.blank'))
   end

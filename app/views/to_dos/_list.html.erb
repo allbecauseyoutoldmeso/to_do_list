@@ -1,0 +1,18 @@
+<div data-controller='to-dos'>
+  <ul>
+    <% to_dos.each do |to_do| %>
+      <li><%= to_do.task %></li>
+    <% end %>
+  </ul>
+  <%= simple_form_for(
+    new_to_do,
+    html: {
+      data: {
+        to_dos_target: 'createForm'
+      }
+    }
+  ) do |form| %>
+    <%= form.input(:task, label: false) %>
+    <%= form.submit(data: { action: 'click->to-dos#create' }) %>
+  <% end %>
+</div>
