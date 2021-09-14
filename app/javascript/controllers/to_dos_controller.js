@@ -6,12 +6,12 @@ export default class extends Controller {
 
   create(event) {
     event.preventDefault()
-    const data = new FormData(this.createFormTarget)
+    const form_data = new FormData(this.createFormTarget)
 
     Rails.ajax({
       type: 'post',
       url: 'to_dos',
-      data: data,
+      data: form_data,
       success: (data) => {
         this.element.outerHTML = data.list
       }
