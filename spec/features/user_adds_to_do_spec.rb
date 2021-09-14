@@ -11,7 +11,7 @@ feature 'adding a to-do', js: true do
     expect(page).to have_selector('li', text: task)
   end
 
-  xscenario 'user submits form without task' do
+  scenario 'user submits form without task' do
     visit(root_path)
     click_button(I18n.t('helpers.submit.to_do.create'))
     expect(page).to have_content(I18n.t('errors.messages.blank'))
