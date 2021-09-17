@@ -12,12 +12,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_17_170647) do
-
-  create_table "to_dos", force: :cascade do |t|
-    t.string "task"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "state", default: 0
+ActiveRecord::Schema.define(version: 20_210_917_170_647) do
+  create_table 'to_dos', force: :cascade do |t|
+    t.string 'task'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'state', default: 0
   end
 end
