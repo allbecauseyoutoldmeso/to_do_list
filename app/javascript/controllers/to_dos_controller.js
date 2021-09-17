@@ -2,16 +2,20 @@ import { Controller } from 'stimulus'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  static targets = ['createForm']
-
   create(event) {
     event.preventDefault()
-    const form_data = new FormData(this.createFormTarget)
+    this.submit_form(event.currentTarget)
+  }
 
+  update(event) {
+    this.submit_form(event.currentTarget)
+  }
+
+  submit_form(form) {
     Rails.ajax({
-      type: 'post',
-      url: 'to_dos',
-      data: form_data,
+      type: form.method,
+      url: form.action,
+      data: new FormData(form),
       success: (data) => {
         this.element.outerHTML = data.list
       }

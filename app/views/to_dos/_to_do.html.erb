@@ -1,0 +1,22 @@
+<%= content_tag(:li, class: 'to-do') do %>
+  <%= content_tag(
+    :span,
+    to_do.task,
+    class: ('complete' if to_do.complete?)
+  ) %>
+  <%= simple_form_for(
+    to_do,
+    html: {
+      data: {
+        action: 'change->to-dos#update'
+      }
+    }
+  ) do |form| %>
+    <%= form.input(
+      :state,
+      label: false,
+      collection: to_do_state_options,
+      selected: to_do.state
+    ) %>
+  <% end %>
+<% end %>

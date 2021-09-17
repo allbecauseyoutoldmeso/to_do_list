@@ -12,6 +12,11 @@ en:
       mark: ''
       text: required
     'yes': 'Yes'
+  to_do:
+    states:
+      active: to do
+      archived: archive
+      complete: done
   to_dos:
     index:
       new_to_do: New ToDo
