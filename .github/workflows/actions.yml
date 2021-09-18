@@ -1,9 +1,9 @@
-name: Actions
+name: actions
 on:
   push:
     branches: '*'
 jobs:
-  test:
+  quality_control:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -20,7 +20,9 @@ jobs:
       - uses: actions/setup-node@v2
       - run: bundle install
       - run: npm install
+      - run: bundle exec rubocop
+      - run: npx eslint .
+      - run: bundle exec i18n-tasks health
       - run: cp config/database.github.yml config/database.yml
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:migrate
+      - run: bundle exec rails db:setup
       - run: bundle exec rspec
