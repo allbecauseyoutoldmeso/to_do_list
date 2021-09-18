@@ -1,0 +1,26 @@
+name: Actions
+on:
+  push:
+    branches: '*'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:10
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+    env:
+      RAILS_ENV: test
+      JAVASCRIPT_DRIVER: headless_chrome
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - uses: actions/setup-node@v2
+      - run: bundle install
+      - run: npm install
+      - run: cp config/database.github.yml config/database.yml
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:migrate
+      - run: bundle exec rspec
