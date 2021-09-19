@@ -2,10 +2,10 @@
   <%= content_tag(
     :span,
     to_do.task,
-    class: ('complete' if to_do.complete?)
+    class: ('done' if to_do.done?)
   ) %>
   <%= simple_form_for(
-    to_do,
+    [to_do.list, to_do],
     html: {
       data: {
         action: 'change->to-dos#update'

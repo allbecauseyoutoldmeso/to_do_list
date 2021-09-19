@@ -9,6 +9,10 @@ FactoryBot.define do
   factory :user do
     email { 'jane.smith@example.com' }
     password { 'password' }
+
+    after(:create) do |user|
+      create(:list, user: user, name: 'main', primary: true)
+    end
   end
 
   factory :session do

@@ -25,9 +25,9 @@ en:
       mark: ''
   to_do:
     states:
-      active: to do
       archived: archive
-      complete: done
+      done: done
+      to_do: to do
   to_dos:
     index:
       title: ToDos
