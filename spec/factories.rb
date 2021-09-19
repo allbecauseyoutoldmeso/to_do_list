@@ -9,4 +9,13 @@ FactoryBot.define do
     email { 'jane.smith@example.com' }
     password { 'password' }
   end
+
+  factory :session do
+    transient do
+      user { create(:user) }
+    end
+
+    email { user.email }
+    password { user.password }
+  end
 end

@@ -1,11 +1,26 @@
-main {
+body {
   font-family: 'Give You Glory', cursive;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
   display: flex;
   flex-direction: column;
   align-items: center;

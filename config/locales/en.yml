@@ -1,9 +1,28 @@
 ---
 en:
+  activemodel:
+    errors:
+      models:
+        session:
+          attributes:
+            base:
+              invalid_credentials: Invalid Login Credentials
   helpers:
     submit:
+      session:
+        create: Log In
       to_do:
         create: Add ToDo
+  layouts:
+    nav_bar:
+      log_out: Log Out
+  simple_form:
+    labels:
+      session:
+        email: Email
+        password: Password
+    required:
+      mark: ''
   to_do:
     states:
       active: to do
