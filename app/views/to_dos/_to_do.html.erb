@@ -2,7 +2,7 @@
   <%= content_tag(
     :span,
     to_do.task,
-    class: ('done' if to_do.done?)
+    class: to_do.state
   ) %>
   <%= simple_form_for(
     [to_do.list, to_do],

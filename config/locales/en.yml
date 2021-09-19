@@ -36,6 +36,7 @@ en:
       archived: archive
       done: done
       to_do: to do
+      urgent: urgent
   to_dos:
     index:
       task: Task
