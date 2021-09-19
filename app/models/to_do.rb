@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ToDo < ApplicationRecord
-  enum state: %i[active complete archived]
+  belongs_to :list, optional: true
   validates :task, presence: true
   validates :state, presence: true
+  enum state: %i[active complete archived]
 end
