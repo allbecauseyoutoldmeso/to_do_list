@@ -26,3 +26,15 @@ jobs:
       - run: cp config/database.github.yml config/database.yml
       - run: bundle exec rails db:setup
       - run: bundle exec rspec
+  deploy:
+    runs-on: ubuntu-latest
+    needs: quality_control
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: 'whispering-beach-18521'
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          healthcheck: 'https://whispering-beach-18521.herokuapp.com/sessions/new'
