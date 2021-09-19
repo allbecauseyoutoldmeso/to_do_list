@@ -11,7 +11,7 @@ FactoryBot.define do
     password { 'password' }
 
     after(:create) do |user|
-      create(:list, user: user, name: 'main', primary: true)
+      create(:list, user: user, name: 'ToDos', primary: true)
     end
   end
 

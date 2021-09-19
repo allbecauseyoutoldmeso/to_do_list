@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root "to_dos#index"
 
-  resources :lists do
-    resources :to_dos
+  resources :lists, only: %i[index new create] do
+    resources :to_dos, only: %i[index create update]
   end
 
-  resources :sessions, only: [:new, :create] do
+  resources :sessions, only: %i[new create] do
     post :delete, on: :collection
   end
 end

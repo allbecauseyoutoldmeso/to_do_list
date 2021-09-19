@@ -9,15 +9,26 @@ en:
               invalid_credentials: Invalid Login Credentials
   helpers:
     submit:
+      list:
+        create: Add List
       session:
         create: Log In
       to_do:
         create: Add ToDo
   layouts:
     nav_bar:
+      all_lists: My Lists
       log_out: Log Out
+      new_list: New List
+  lists:
+    index:
+      title: My Lists
+    new:
+      title: New List
   simple_form:
     labels:
+      list:
+        name: List Name
       session:
         email: Email
         password: Password
@@ -28,6 +39,3 @@ en:
       archived: archive
       done: done
       to_do: to do
-  to_dos:
-    index:
-      title: ToDos
