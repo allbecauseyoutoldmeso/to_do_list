@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class ToDosController < ApplicationController
-  before_action :set_list
-
   def index
-    @to_dos = list.to_dos.active
-    @new_to_do = list.to_dos.new
+    @list = current_user.lists.find_by(id: params[:list_id])
+    @to_dos = @list.to_dos.active
+    @new_to_do = @list.to_dos.new
   end
 
   def create
@@ -22,10 +21,8 @@ class ToDosController < ApplicationController
 
   private
 
-  attr_reader :list
-
-  def set_list
-    @list = List.find_by(id: params[:list_id]) || current_user.primary_list
+  def list
+    @list ||= current_user.lists.find_by(id: params[:list_id])
   end
 
   def to_do_params

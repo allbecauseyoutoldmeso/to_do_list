@@ -9,10 +9,6 @@ feature 'viewing lists' do
     create(:list, user: user, name: name)
 
     log_in(user)
-
-    expect(page).to have_selector('h1', text: user.primary_list.name)
-
-    click_link(I18n.t('layouts.nav_bar.all_lists'))
     click_link(name)
 
     expect(page).to have_selector('h1', text: name)

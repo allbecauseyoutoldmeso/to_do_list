@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "to_dos#index"
+  root "lists#index"
 
   resources :lists, only: %i[index new create] do
     resources :to_dos, only: %i[index create update]

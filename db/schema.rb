@@ -5,7 +5,6 @@ ActiveRecord::Schema.define(version: 20_210_919_104_712) do
 
   create_table 'lists', force: :cascade do |t|
     t.string 'name'
-    t.boolean 'primary'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'user_id'
