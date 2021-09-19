@@ -22,6 +22,7 @@ en:
       log_out: Log Out
   lists:
     index:
+      name: Name
       title: My Lists
   simple_form:
     labels:
@@ -35,3 +36,6 @@ en:
       archived: archive
       done: done
       to_do: to do
+  to_dos:
+    index:
+      task: Task

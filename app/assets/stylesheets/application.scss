@@ -12,6 +12,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 22px;
 }
 
 form {
@@ -29,6 +30,7 @@ form {
 input {
   font-family: inherit;
   margin: 10px;
+  font-size: 16px;
 }
 
 .field_with_errors {
@@ -43,6 +45,7 @@ input {
 
 ul {
   padding: 0;
+  margin: 10px;
 }
 
 li {
@@ -51,6 +54,7 @@ li {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 0;
 }
 
 .done {
@@ -60,21 +64,33 @@ li {
 select {
   font-family: inherit;
   font-size: 12px;
-  margin-left: 10px;
+  margin: 0 0 0 20px;
 }
 
 .nav-item {
   margin: 10px;
-  border: solid 0.5px black;
-  border-radius: 3px;
+  border: none;
   padding: 3px;
-  font-size: 12px;
+  font-size: 16px;
   color: black;
   text-decoration: none;
-  background: #efefef
+  background-color: transparent;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .archive-button {
-  margin: 2px 0 2px 10px;
+  margin: 0 0 0 20px;
   font-size: 12px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

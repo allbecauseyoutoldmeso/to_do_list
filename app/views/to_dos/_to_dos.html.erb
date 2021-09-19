@@ -10,7 +10,11 @@
       }
     }
   ) do |form| %>
-    <%= form.input(:task, label: false) %>
+    <%= form.input(
+      :task,
+      label: false,
+      input_html: { title: t('to_dos.index.task') }
+    ) %>
     <%= form.submit %>
   <% end %>
 <% end %>
