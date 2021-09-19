@@ -2,7 +2,7 @@
 
 class ToDosController < ApplicationController
   def index
-    @to_dos = ToDo.where.not(state: :archived)
+    @to_dos = ToDo.where.not(state: :archived).order(:created_at)
     @new_to_do = ToDo.new
   end
 
@@ -29,7 +29,7 @@ class ToDosController < ApplicationController
       list: render_to_string(
         partial: 'list',
         locals: {
-          to_dos: ToDo.where.not(state: :archived),
+          to_dos: ToDo.where.not(state: :archived).order(:created_at),
           new_to_do: new_to_do
         }
       )

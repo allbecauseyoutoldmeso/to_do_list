@@ -1,2 +1,4 @@
 ignore_unused:
  - helpers.*
+ - simple_form.*
+ - activemodel.*

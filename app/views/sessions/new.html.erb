@@ -1,0 +1,6 @@
+<%= simple_form_for(@session) do |form| %>
+  <%= form.error :base %>
+  <%= form.input(:email) %>
+  <%= form.input(:password) %>
+  <%= form.submit %>
+<% end %>
