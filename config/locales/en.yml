@@ -11,6 +11,7 @@ en:
     submit:
       list:
         create: Add List
+        update: Archive
       session:
         create: Log In
       to_do:

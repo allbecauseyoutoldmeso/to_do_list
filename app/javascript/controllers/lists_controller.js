@@ -2,7 +2,7 @@ import { Controller } from 'stimulus'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  create(event) {
+  submitForm(event) {
     event.preventDefault()
     const form = event.currentTarget
 

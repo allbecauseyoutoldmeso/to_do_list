@@ -4,14 +4,14 @@ import Rails from '@rails/ujs'
 export default class extends Controller {
   create(event) {
     event.preventDefault()
-    this.submit_form(event.currentTarget)
+    this.submitForm(event.currentTarget)
   }
 
   update(event) {
-    this.submit_form(event.currentTarget)
+    this.submitForm(event.currentTarget)
   }
 
-  submit_form(form) {
+  submitForm(form) {
     Rails.ajax({
       type: form.method,
       url: form.action,

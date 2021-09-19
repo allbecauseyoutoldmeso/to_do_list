@@ -1,0 +1,14 @@
+<%= content_tag(:li) do %>
+  <%= link_to(list.name, list_to_dos_path(list)) %>
+  <%= simple_form_for(
+    list,
+    html: {
+      data: {
+        action: 'submit->lists#submitForm'
+      }
+    }
+  ) do |form| %>
+    <%= form.hidden_field(:state, value: :archived) %>
+    <%= form.submit(class: 'archive-button') %>
+  <% end %>
+<% end %>

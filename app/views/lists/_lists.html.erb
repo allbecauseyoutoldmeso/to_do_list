@@ -1,20 +1,16 @@
 <%= content_tag(:div, data: { controller: 'lists' }) do %>
   <%= content_tag(:ul) do %>
-    <% lists.each do |list| %>
-      <%= content_tag(:li) do %>
-        <%= link_to(list.name, list_to_dos_path(list)) %>
-      <% end %>
-    <% end %>
-    <%= simple_form_for(
-      new_list,
-      html: {
-        data: {
-          action: 'submit->lists#create'
-        }
+    <%= render(partial: 'list', collection: lists) %>
+  <% end %>
+  <%= simple_form_for(
+    new_list,
+    html: {
+      data: {
+        action: 'submit->lists#submitForm'
       }
-    ) do |form| %>
-      <%= form.input(:name, label: false) %>
-      <%= form.submit %>
-    <% end %>
+    }
+  ) do |form| %>
+    <%= form.input(:name, label: false) %>
+    <%= form.submit %>
   <% end %>
 <% end %>

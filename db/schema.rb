@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 20_210_919_104_712) do
+ActiveRecord::Schema.define(version: 20_210_919_163_624) do
   enable_extension 'plpgsql'
 
   create_table 'lists', force: :cascade do |t|
@@ -8,6 +8,7 @@ ActiveRecord::Schema.define(version: 20_210_919_104_712) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'user_id'
+    t.integer 'state', default: 0
     t.index ['user_id'], name: 'index_lists_on_user_id'
   end
 

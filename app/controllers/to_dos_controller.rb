@@ -2,7 +2,7 @@
 
 class ToDosController < ApplicationController
   def index
-    @list = current_user.lists.find_by(id: params[:list_id])
+    @list = current_user.lists.find(params[:list_id])
     @to_dos = @list.to_dos.active.persisted
     @new_to_do = @list.to_dos.new
   end
@@ -22,7 +22,7 @@ class ToDosController < ApplicationController
   private
 
   def list
-    @list ||= current_user.lists.find_by(id: params[:list_id])
+    @list ||= current_user.lists.find(params[:list_id])
   end
 
   def to_do_params
