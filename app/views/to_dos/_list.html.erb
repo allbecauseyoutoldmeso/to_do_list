@@ -3,7 +3,7 @@
     <%= render(partial: 'to_do', collection: to_dos) %>
   <% end %>
   <%= simple_form_for(
-    new_to_do,
+    [new_to_do.list, new_to_do],
     html: {
       data: {
         action: 'submit->to-dos#create'

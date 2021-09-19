@@ -1,13 +1,23 @@
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 20_210_918_182_425) do
+ActiveRecord::Schema.define(version: 20_210_919_104_712) do
   enable_extension 'plpgsql'
+
+  create_table 'lists', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'user_id'
+    t.index ['user_id'], name: 'index_lists_on_user_id'
+  end
 
   create_table 'to_dos', force: :cascade do |t|
     t.string 'task'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'state', default: 0
+    t.bigint 'list_id'
+    t.index ['list_id'], name: 'index_to_dos_on_list_id'
   end
 
   create_table 'users', force: :cascade do |t|

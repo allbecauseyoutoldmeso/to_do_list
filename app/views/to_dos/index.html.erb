@@ -1,4 +1,4 @@
-<%= content_tag(:h1, t('to_dos.index.title')) %>
+<%= content_tag(:h1, @list.name) %>
 <%= render(
   partial: 'list',
   locals: { to_dos: @to_dos, new_to_do: @new_to_do }
