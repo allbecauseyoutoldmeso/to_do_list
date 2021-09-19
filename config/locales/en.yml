@@ -17,18 +17,13 @@ en:
         create: Add ToDo
   layouts:
     nav_bar:
-      all_lists: My Lists
+      home: My Lists
       log_out: Log Out
-      new_list: New List
   lists:
     index:
       title: My Lists
-    new:
-      title: New List
   simple_form:
     labels:
-      list:
-        name: List Name
       session:
         email: Email
         password: Password

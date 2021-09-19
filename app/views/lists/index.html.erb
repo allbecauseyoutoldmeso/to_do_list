@@ -1,4 +1,2 @@
 <%= content_tag(:h1, t('.title')) %>
-<% @lists.each do |list| %>
-  <%= link_to(list.name, list_to_dos_path(list)) %>
-<% end %>
+<%= render(partial: 'lists', locals: { lists: @lists, new_list: @new_list }) %>

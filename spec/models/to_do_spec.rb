@@ -31,4 +31,23 @@ describe ToDo do
       )
     end
   end
+
+  describe '.persisted' do
+    it 'only returns saved to_dos' do
+      to_do_1 = create(:to_do)
+      _to_do_2 = build(:to_do)
+
+      expect(described_class.persisted).to contain_exactly(to_do_1)
+    end
+  end
+
+  describe '.active' do
+    it 'only returns to_dos that are not archived' do
+      to_do_1 = create(:to_do, state: described_class.states[:to_do])
+      to_do_2 = create(:to_do, state: described_class.states[:done])
+      _to_do_3 = create(:to_do, state: described_class.states[:archived])
+
+      expect(described_class.active).to contain_exactly(to_do_1, to_do_2)
+    end
+  end
 end

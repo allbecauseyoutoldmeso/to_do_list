@@ -20,4 +20,13 @@ describe List do
       )
     end
   end
+
+  describe '.persisted' do
+    it 'only returns saved lists' do
+      list_1 = create(:list)
+      _list_2 = build(:list)
+
+      expect(described_class.persisted).to contain_exactly(list_1)
+    end
+  end
 end

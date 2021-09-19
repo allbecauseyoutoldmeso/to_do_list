@@ -1,5 +1,5 @@
 <%= content_tag(:h1, @list.name) %>
 <%= render(
-  partial: 'list',
+  partial: 'to_dos',
   locals: { to_dos: @to_dos, new_to_do: @new_to_do }
 ) %>

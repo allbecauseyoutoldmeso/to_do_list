@@ -12,3 +12,5 @@ Metrics/BlockLength:
   Enabled: true
   Exclude:
     - spec/**/*
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
