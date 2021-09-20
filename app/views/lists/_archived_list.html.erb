@@ -1,0 +1,12 @@
+<%= content_tag(:li) do %>
+  <%= link_to(archived_list.name, list_to_dos_path(archived_list)) %>
+  <%= simple_form_for(
+    archived_list,
+  ) do |form| %>
+    <%= form.hidden_field(:state, value: :active) %>
+    <%= form.submit(
+      class: 'archive-button',
+      value: t('lists.archive.reactivate')
+    ) %>
+  <% end %>
+<% end %>

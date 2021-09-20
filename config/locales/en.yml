@@ -18,9 +18,13 @@ en:
         create: Add ToDo
   layouts:
     nav_bar:
+      archive: Archived Lists
       home: My Lists
       log_out: Log Out
   lists:
+    archive:
+      reactivate: Reactivate
+      title: Archived Lists
     index:
       name: Name
       title: My Lists

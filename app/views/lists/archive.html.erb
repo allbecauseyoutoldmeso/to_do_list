@@ -1,0 +1,4 @@
+<%= content_tag(:h1, t('.title')) %>
+<%= content_tag(:ul) do %>
+  <%= render(partial: 'archived_list', collection: @lists) %>
+<% end %>

@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
-    - 'config/**/*'
-    - 'bin/**/*'
+    - config/**/*
+    - bin/**/*
 Style/Documentation:
   Enabled: false
 Style/IfUnlessModifier:
@@ -9,8 +9,10 @@ Style/IfUnlessModifier:
 Style/GuardClause:
   Enabled: false
 Metrics/BlockLength:
-  Enabled: true
   Exclude:
     - spec/**/*
 Naming/VariableNumber:
   EnforcedStyle: snake_case
+Metrics/AbcSize:
+  Exclude:
+    - app/controllers/lists_controller.rb

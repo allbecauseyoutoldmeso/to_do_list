@@ -6,6 +6,10 @@ class ListsController < ApplicationController
     @new_list = current_user.lists.new
   end
 
+  def archive
+    @lists = current_user.lists.archived
+  end
+
   def create
     list = current_user.lists.new(list_params)
     new_list = list.save ? current_user.lists.new : list
@@ -15,7 +19,16 @@ class ListsController < ApplicationController
   def update
     list = current_user.lists.find(params[:id])
     list.update(list_params)
-    render(json: lists_json(current_user.lists.new))
+
+    respond_to do |format|
+      format.html do
+        redirect_to(lists_path)
+      end
+
+      format.json do
+        render(json: lists_json(current_user.lists.new))
+      end
+    end
   end
 
   private

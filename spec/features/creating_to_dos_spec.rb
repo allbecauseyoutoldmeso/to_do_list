@@ -12,6 +12,7 @@ feature 'creating to-dos', js: true do
     visit(list_to_dos_path(list))
     fill_in('to_do_task', with: task)
     click_button(I18n.t('helpers.submit.to_do.create'))
+
     expect(page).to have_selector('li', text: task)
   end
 
@@ -22,6 +23,7 @@ feature 'creating to-dos', js: true do
     log_in(user)
     visit(list_to_dos_path(list))
     click_button(I18n.t('helpers.submit.to_do.create'))
+
     expect(page).to have_content(I18n.t('errors.messages.blank'))
   end
 end
