@@ -39,8 +39,8 @@ en:
     states:
       archived: archive
       done: done
+      priority: priority
       to_do: to do
-      urgent: urgent
   to_dos:
     index:
       task: Task
