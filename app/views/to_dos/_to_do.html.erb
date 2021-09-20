@@ -15,7 +15,7 @@
     <%= form.input(
       :state,
       label: false,
-      collection: to_do_state_options,
+      collection: state_options(to_do),
       selected: to_do.state
     ) %>
   <% end %>
