@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <%= content_tag(:h1, @list.name) %>
+    <%= content_tag(:ul) do %>
+      <% @list.to_dos.each do |to_do| %>
+        <%= content_tag(:li, to_do.task) %>
+      <% end %>
+    <% end %>
+  </body>
+</html>

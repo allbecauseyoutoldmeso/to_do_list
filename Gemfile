@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
+  gem 'dotenv-rails', '~> 2.7'
   gem 'pry', '~> 0.13.1'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.19', require: false
@@ -33,6 +34,7 @@ end
 group :test do
   gem 'capybara', '>= 3.26'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 2.19'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

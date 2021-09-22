@@ -2,13 +2,13 @@
 
 FactoryBot.define do
   factory :to_do do
-    task { 'Buy socks' }
+    task { Faker::Lorem.sentence(word_count: 3) }
     list factory: :list
   end
 
   factory :user do
-    email { 'jane.smith@example.com' }
-    password { 'password' }
+    email { Faker::Internet.email }
+    password { Faker::Internet.password }
   end
 
   factory :session do
@@ -21,7 +21,7 @@ FactoryBot.define do
   end
 
   factory :list do
-    name { 'shopping' }
+    name { Faker::Lorem.word }
     user factory: :user
   end
 end
