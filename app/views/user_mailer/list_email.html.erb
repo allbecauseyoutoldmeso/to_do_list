@@ -6,7 +6,7 @@
   <body>
     <%= content_tag(:h1, @list.name) %>
     <%= content_tag(:ul) do %>
-      <% @list.to_dos.each do |to_do| %>
+      <% @list.to_dos.active.each do |to_do| %>
         <%= content_tag(:li, to_do.task) %>
       <% end %>
     <% end %>

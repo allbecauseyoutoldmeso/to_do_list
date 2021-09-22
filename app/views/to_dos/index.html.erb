@@ -1,5 +1,9 @@
 <%= content_tag(:h1, @list.name) %>
 <%= render(
+  partial: 'email_form',
+  locals: { list: @list, email_sent: false }
+) %>
+<%= render(
   partial: 'to_dos',
   locals: { to_dos: @to_dos, new_to_do: @new_to_do }
 ) %>

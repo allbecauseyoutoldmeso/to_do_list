@@ -43,4 +43,7 @@ en:
       to_do: to do
   to_dos:
     index:
+      email_list: Email Me This List
+      email_sent: Email Sent!
+      sending_email: Sending Email...
       task: Task

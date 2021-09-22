@@ -15,6 +15,10 @@ main {
   font-size: 22px;
 }
 
+h1 {
+  margin-bottom: 0px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -45,7 +49,7 @@ input {
 
 ul {
   padding: 0;
-  margin: 10px;
+  margin: 20px 10px;
 }
 
 li {
@@ -97,4 +101,12 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.notification {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  color: #FF1493;
 }

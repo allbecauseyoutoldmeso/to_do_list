@@ -1,0 +1,22 @@
+<%= content_tag(:div, data: { controller: 'email' }) do %>
+  <%= simple_form_for(
+    list,
+    url: list_email_url,
+    html: {
+      data: {
+        action: 'submit->email#sendList'
+      }
+    }
+  ) do |form| %>
+    <%= form.submit(
+      value: t('to_dos.index.email_list'),
+      class: 'nav-item',
+      data: {
+        disable_with: t('to_dos.index.sending_email')
+      }
+    ) %>
+  <% end %>
+  <% if email_sent %>
+    <%= content_tag(:p, t('to_dos.index.email_sent'), class: 'notification') %>
+  <% end %>
+<% end %>
