@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :list_emails, only: %i[create]
 
+  resources :archive_dones, only: %i[create]
+
   resources :sessions, only: %i[new create] do
     post :delete, on: :collection
   end

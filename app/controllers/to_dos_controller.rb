@@ -3,7 +3,6 @@
 class ToDosController < ApplicationController
   def index
     @list = current_user.lists.find(params[:list_id])
-    @to_dos = @list.to_dos.active.persisted
     @new_to_do = @list.to_dos.new
   end
 
@@ -34,7 +33,7 @@ class ToDosController < ApplicationController
       element: render_to_string(
         partial: 'to_dos',
         locals: {
-          to_dos: list.to_dos.active.persisted,
+          list: list,
           new_to_do: new_to_do
         }
       )

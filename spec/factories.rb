@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :archive_done do
+    list factory: :list
+  end
+
   factory :list do
     name { Faker::Lorem.word }
     user factory: :user

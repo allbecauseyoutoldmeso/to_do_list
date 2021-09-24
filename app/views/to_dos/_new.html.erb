@@ -1,0 +1,15 @@
+<%= simple_form_for(
+  [list, new_to_do],
+  html: {
+    data: {
+      action: 'submit->requests#submitForm'
+    }
+  }
+) do |form| %>
+  <%= form.input(
+    :task,
+    label: false,
+    input_html: { title: t('to_dos.index.task') }
+  ) %>
+  <%= form.submit %>
+<% end %>

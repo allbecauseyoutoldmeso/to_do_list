@@ -1,20 +1,13 @@
 <%= content_tag(:div, data: { controller: 'requests' }) do %>
   <%= content_tag(:ul) do %>
-    <%= render(partial: 'to_do', collection: to_dos) %>
-  <% end %>
-  <%= simple_form_for(
-    [new_to_do.list, new_to_do],
-    html: {
-      data: {
-        action: 'submit->requests#submitForm'
-      }
-    }
-  ) do |form| %>
-    <%= form.input(
-      :task,
-      label: false,
-      input_html: { title: t('to_dos.index.task') }
+    <%= render(
+      partial: 'to_dos/to_do',
+      collection: list.to_dos.active.persisted
     ) %>
-    <%= form.submit %>
   <% end %>
+  <%= render(
+    partial: 'to_dos/new',
+    locals: { list: list, new_to_do: new_to_do }
+  ) %>
+  <%= render(partial: 'archive_dones/new', locals: { list: list }) %>
 <% end %>
