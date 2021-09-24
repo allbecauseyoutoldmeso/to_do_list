@@ -11,7 +11,7 @@ class ArchiveDonesController < ApplicationController
 
   def to_dos_json
     {
-      element: render_to_string(
+      partial: render_to_string(
         partial: 'to_dos/to_dos',
         locals: {
           list: list,

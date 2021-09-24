@@ -39,7 +39,7 @@ class ListsController < ApplicationController
 
   def lists_json(new_list)
     {
-      element: render_to_string(
+      partial: render_to_string(
         partial: 'lists',
         locals: {
           lists: current_user.lists.active.persisted,

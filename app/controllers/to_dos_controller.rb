@@ -30,7 +30,7 @@ class ToDosController < ApplicationController
 
   def to_dos_json(new_to_do)
     {
-      element: render_to_string(
+      partial: render_to_string(
         partial: 'to_dos',
         locals: {
           list: list,

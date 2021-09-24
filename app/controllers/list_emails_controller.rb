@@ -11,7 +11,7 @@ class ListEmailsController < ApplicationController
 
   def list_email_form_json
     {
-      element: render_to_string(
+      partial: render_to_string(
         partial: 'list_emails/new',
         locals: {
           list: list,
