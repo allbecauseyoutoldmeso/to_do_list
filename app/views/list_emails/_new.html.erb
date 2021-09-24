@@ -1,16 +1,16 @@
-<%= content_tag(:div, data: { controller: 'email' }) do %>
+<%= content_tag(:div, data: { controller: 'requests' }) do %>
   <%= simple_form_for(
-    list_email,
+    ListEmail.new,
     html: {
       data: {
-        action: 'submit->email#sendList'
+        action: 'submit->requests#submitForm'
       }
     }
   ) do |form| %>
     <%= form.input(
       :list_id,
       as: :hidden,
-      input_html: { value: form.object.list_id }
+      input_html: { value: list.id }
     ) %>
     <%= form.submit(
       value: t('to_dos.index.email_list'),

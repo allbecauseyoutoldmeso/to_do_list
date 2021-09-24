@@ -2,23 +2,27 @@
 
 class ListEmailsController < ApplicationController
   def create
-    list_email = ListEmail.new(list_email_params)
+    list_email = ListEmail.new(list: list)
     list_email.deliver_now
-    render(json: list_email_form_json(list_email))
+    render(json: list_email_form_json)
   end
 
   private
 
-  def list_email_form_json(list_email)
+  def list_email_form_json
     {
-      list_email_form: render_to_string(
-        partial: 'list_emails/form',
+      element: render_to_string(
+        partial: 'list_emails/new',
         locals: {
-          list_email: list_email,
+          list: list,
           email_sent: true
         }
       )
     }
+  end
+
+  def list
+    @list ||= List.find(list_email_params[:list_id])
   end
 
   def list_email_params

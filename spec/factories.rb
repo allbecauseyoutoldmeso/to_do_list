@@ -7,11 +7,7 @@ FactoryBot.define do
   end
 
   factory :list_email do
-    transient do
-      list { create(:list) }
-    end
-
-    list_id { list.id }
+    list factory: :list
   end
 
   factory :session do

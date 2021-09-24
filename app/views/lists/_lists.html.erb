@@ -1,4 +1,4 @@
-<%= content_tag(:div, data: { controller: 'lists' }) do %>
+<%= content_tag(:div, data: { controller: 'requests' }) do %>
   <%= content_tag(:ul) do %>
     <%= render(partial: 'list', collection: lists) %>
   <% end %>
@@ -6,7 +6,7 @@
     new_list,
     html: {
       data: {
-        action: 'submit->lists#submitForm'
+        action: 'submit->requests#submitForm'
       }
     }
   ) do |form| %>
