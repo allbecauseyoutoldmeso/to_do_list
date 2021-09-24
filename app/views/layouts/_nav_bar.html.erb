@@ -1,5 +1,7 @@
 <%= content_tag(:nav) do %>
-  <%= link_to(t('.home'), root_path, class: 'nav-item') %>
-  <%= link_to(t('.archive'), archive_lists_path, class: 'nav-item') %>
-  <%= button_to(t('.log_out'), delete_sessions_path, class: 'nav-item') %>
+  <% if current_user.present? %>
+    <%= link_to(t('.home'), root_path, class: 'nav-item') %>
+    <%= link_to(t('.archive'), archive_lists_path, class: 'nav-item') %>
+    <%= button_to(t('.log_out'), delete_sessions_path, class: 'nav-item') %>
+  <% end %>
 <% end %>

@@ -1,34 +1,45 @@
 $alert: #FF1493;
 
+a {
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.archive-button {
+  margin: 0 0 0 20px;
+  font-size: 12px;
+}
+
 body {
   font-family: 'Give You Glory', cursive;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  @media (min-width: 600px) {
-    justify-content: flex-end;
-  }
+.done {
+  text-decoration: line-through;
 }
 
-main {
+.error {
+  color: red;
+}
+
+.field_with_errors {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 22px;
-}
-
-h1 {
-  margin-bottom: 0px;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+h1 {
+  margin-bottom: 0px;
 }
 
 .input {
@@ -43,21 +54,6 @@ input {
   font-size: 16px;
 }
 
-.field_with_errors {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.error {
-  color: red;
-}
-
-ul {
-  padding: 0;
-  margin: 20px 10px;
-}
-
 li {
   list-style-type: none;
   display: flex;
@@ -67,18 +63,21 @@ li {
   margin: 10px 0;
 }
 
-.done {
-  text-decoration: line-through;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
 }
 
-.priority {
-  color: $alert;
-}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-select {
-  font-family: inherit;
-  font-size: 12px;
-  margin: 0 0 0 20px;
+  @media (min-width: 600px) {
+    justify-content: flex-end;
+  }
 }
 
 .nav-item {
@@ -95,24 +94,29 @@ select {
   }
 }
 
-.archive-button {
-  margin: 0 0 0 20px;
-  font-size: 12px;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .notification {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 0;
   color: $alert;
+}
+
+.priority {
+  color: $alert;
+}
+
+select {
+  font-family: inherit;
+  font-size: 12px;
+  margin: 0 0 0 20px;
+}
+
+.session-form {
+  margin: 40px;
+}
+
+ul {
+  padding: 0;
+  margin: 20px 10px;
 }

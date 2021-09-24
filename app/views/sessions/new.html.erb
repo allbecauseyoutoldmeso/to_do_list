@@ -1,5 +1,5 @@
-<%= simple_form_for(@session) do |form| %>
-  <%= form.error :base %>
+<%= simple_form_for(@session, html: { class: 'session-form' }) do |form| %>
+  <%= form.error(:base) %>
   <%= form.input(:email) %>
   <%= form.input(:password) %>
   <%= form.submit %>
