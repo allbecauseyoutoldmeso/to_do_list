@@ -11,7 +11,7 @@ export default class extends Controller {
       url: form.action,
       data: new FormData(form),
       success: (data) => {
-        this.element.outerHTML = data.email_form
+        this.element.outerHTML = data.list_email_form
       }
     })
   }

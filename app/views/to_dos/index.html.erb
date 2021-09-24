@@ -1,7 +1,7 @@
 <%= content_tag(:h1, @list.name) %>
 <%= render(
-  partial: 'email_form',
-  locals: { list: @list, email_sent: false }
+  partial: 'list_emails/form',
+  locals: { list_email: @list_email, email_sent: false }
 ) %>
 <%= render(
   partial: 'to_dos',

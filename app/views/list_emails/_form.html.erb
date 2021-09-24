@@ -1,13 +1,17 @@
 <%= content_tag(:div, data: { controller: 'email' }) do %>
   <%= simple_form_for(
-    list,
-    url: list_email_url,
+    list_email,
     html: {
       data: {
         action: 'submit->email#sendList'
       }
     }
   ) do |form| %>
+    <%= form.input(
+      :list_id,
+      as: :hidden,
+      input_html: { value: form.object.list_id }
+    ) %>
     <%= form.submit(
       value: t('to_dos.index.email_list'),
       class: 'nav-item',

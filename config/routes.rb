@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   resources :lists, only: %i[index new create update] do
     get :archive, on: :collection
-    patch :email
     resources :to_dos, only: %i[index create update]
   end
+
+  resources :list_emails, only: %i[create]
 
   resources :sessions, only: %i[new create] do
     post :delete, on: :collection

@@ -31,12 +31,6 @@ class ListsController < ApplicationController
     end
   end
 
-  def email
-    list = current_user.lists.find(params[:list_id])
-    UserMailer.with(list: list).list_email.deliver_now
-    render(json: email_form_json(list))
-  end
-
   private
 
   def list_params
@@ -51,15 +45,6 @@ class ListsController < ApplicationController
           lists: current_user.lists.active.persisted,
           new_list: new_list
         }
-      )
-    }
-  end
-
-  def email_form_json(list)
-    {
-      email_form: render_to_string(
-        partial: 'to_dos/email_form',
-        locals: { list: list, email_sent: true }
       )
     }
   end
