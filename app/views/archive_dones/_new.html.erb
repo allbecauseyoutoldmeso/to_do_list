@@ -1,20 +1,22 @@
-<%= simple_form_for(
-  ArchiveDone.new,
-  html: {
-    data: {
-      action: 'submit->requests#submitForm'
+<% if list.to_dos.where(state: ToDo.states[:done]).any? %>
+  <%= simple_form_for(
+    ArchiveDone.new,
+    html: {
+      data: {
+        action: 'submit->requests#submitForm'
+      }
     }
-  }
-) do |form| %>
-  <%= form.input(
-    :list_id,
-    as: :hidden,
-    input_html: { value: list.id }
-  ) %>
-  <%= form.submit(
-    value: t('to_dos.index.archive_done'),
-    data: {
-      disable_with: t('to_dos.index.archive_done')
-    }
-  ) %>
+  ) do |form| %>
+    <%= form.input(
+      :list_id,
+      as: :hidden,
+      input_html: { value: list.id }
+    ) %>
+    <%= form.submit(
+      value: t('to_dos.index.archive_done'),
+      data: {
+        disable_with: t('to_dos.index.archive_done')
+      }
+    ) %>
+  <% end %>
 <% end %>
