@@ -1,8 +1,45 @@
 $alert: #FF1493;
 
+@mixin animation {
+  @keyframes fadeout {
+    from {
+      opacity: 1
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-direction-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@include animation
+
 a {
   color: black;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.action-item {
+  margin: 10px;
+  border: none;
+  padding: 3px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
 
   &:hover {
     text-decoration: underline;
@@ -27,14 +64,12 @@ body {
 }
 
 .field_with_errors {
-  display: flex;
-  flex-direction: column;
+  @include flex-direction-column;
   align-items: center;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  @include flex-direction-column;
   align-items: center;
 }
 
@@ -44,8 +79,7 @@ h1 {
 }
 
 .input {
-  display: flex;
-  flex-direction: column;
+  @include flex-direction-column;
   align-items: center;
 }
 
@@ -56,24 +90,21 @@ input {
 }
 
 li {
+  @include flex-direction-row;
   list-style-type: none;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  @include flex-direction-column;
   align-items: center;
   font-size: 22px;
 }
 
 nav {
-  display: flex;
-  flex-direction: row;
+  @include flex-direction-row;
   justify-content: space-between;
 
   @media (min-width: 600px) {
@@ -81,26 +112,14 @@ nav {
   }
 }
 
-.nav-item {
-  margin: 10px;
-  border: none;
-  padding: 3px;
-  font-size: 16px;
-  color: black;
-  text-decoration: none;
-  background-color: transparent;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .notification {
-  display: flex;
-  flex-direction: row;
+  @include flex-direction-row;
   justify-content: center;
   margin: 0;
   color: $alert;
+  opacity: 0;
+  font-size: 16px;
+  animation: fadeout 4s;
 }
 
 .priority {
