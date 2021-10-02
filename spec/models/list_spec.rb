@@ -29,4 +29,26 @@ describe List do
       expect(described_class.persisted).to contain_exactly(list_1)
     end
   end
+
+  describe '.expired' do
+    it 'returns archived lists past expiry date' do
+      list_1 = create(
+        :list,
+        state: List.states[:archived],
+        updated_at: (List::EXPIRY_TIME + 1.day).ago
+      )
+      _list_2 = create(
+        :list,
+        state: List.states[:archived],
+        updated_at: (List::EXPIRY_TIME - 1.day).ago
+      )
+      _list_3 = create(
+        :list,
+        state: List.states[:active],
+        updated_at: (List::EXPIRY_TIME + 1.day).ago
+      )
+
+      expect(described_class.expired).to contain_exactly(list_1)
+    end
+  end
 end

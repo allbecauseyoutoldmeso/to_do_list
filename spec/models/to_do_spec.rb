@@ -50,4 +50,26 @@ describe ToDo do
       expect(described_class.active).to contain_exactly(to_do_1, to_do_2)
     end
   end
+
+  describe '.expired' do
+    it 'returns archived to-dos past expiry date' do
+      to_do_1 = create(
+        :to_do,
+        state: ToDo.states[:archived],
+        updated_at: (ToDo::EXPIRY_TIME + 1.day).ago
+      )
+      _to_do_2 = create(
+        :to_do,
+        state: ToDo.states[:archived],
+        updated_at: (ToDo::EXPIRY_TIME - 1.day).ago
+      )
+      _to_do_3 = create(
+        :to_do,
+        state: ToDo.states[:to_do],
+        updated_at: (ToDo::EXPIRY_TIME + 1.day).ago
+      )
+
+      expect(described_class.expired).to contain_exactly(to_do_1)
+    end
+  end
 end
