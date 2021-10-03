@@ -12,6 +12,7 @@ class ToDo < ApplicationRecord
 
   scope :active, -> { where.not(state: %i[archived scheduled]) }
   scope :persisted, -> { where.not(id: nil) }
+  scope :due, -> { scheduled.where(scheduled_date: ..Date.current) }
 
   scope :expired, lambda {
     where(state: states[:archived], updated_at: ...EXPIRY_TIME.ago)

@@ -72,4 +72,31 @@ describe ToDo do
       expect(described_class.expired).to contain_exactly(to_do_1)
     end
   end
+
+  describe '.due' do
+    it 'returns scheduled to-dos with scheduled_date of today or earlier' do
+      to_do_1 = create(
+        :to_do,
+        state: ToDo.states[:scheduled],
+        scheduled_date: Date.current
+      )
+      to_do_2 = create(
+        :to_do,
+        state: ToDo.states[:scheduled],
+        scheduled_date: 1.day.ago
+      )
+      _to_do_3 = create(
+        :to_do,
+        state: ToDo.states[:scheduled],
+        scheduled_date: 1.day.from_now
+      )
+      _to_do_4 = create(
+        :to_do,
+        state: ToDo.states[:to_do],
+        scheduled_date: 1.day.ago
+      )
+
+      expect(described_class.due).to contain_exactly(to_do_1, to_do_2)
+    end
+  end
 end
