@@ -1,4 +1,8 @@
-<%= content_tag(:div, data: { controller: 'requests' }) do %>
+<%= content_tag(
+  :div,
+  data: { controller: 'requests' },
+  class: 'list-email'
+) do %>
   <%= simple_form_for(
     ListEmail.new,
     html: {
@@ -14,13 +18,17 @@
     ) %>
     <%= form.submit(
       value: t('to_dos.index.email_list'),
-      class: 'action-item',
+      class: 'action-item list-email-button',
       data: {
         disable_with: t('to_dos.index.sending_email')
       }
     ) %>
   <% end %>
   <% if email_sent %>
-    <%= content_tag(:p, t('to_dos.index.email_sent'), class: 'notification') %>
+    <%= content_tag(
+      :p,
+      t('to_dos.index.email_sent'),
+      class: 'list-email-confirmation'
+    ) %>
   <% end %>
 <% end %>
