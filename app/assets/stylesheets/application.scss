@@ -155,6 +155,12 @@ nav {
   color: $alert;
 }
 
+.scheduled-to-do {
+  @include flex-direction-row;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .scheduled-to-do-fields {
   @include flex-direction-row;
 }
