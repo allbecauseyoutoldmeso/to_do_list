@@ -3,6 +3,10 @@ en:
   activemodel:
     errors:
       models:
+        scheduled_to_do:
+          attributes:
+            scheduled_date:
+              not_in_future: Must be in the future
         session:
           attributes:
             base:
@@ -12,6 +16,8 @@ en:
       list:
         create: Add List
         update: Archive
+      scheduled_to_do:
+        create: Add Scheduled ToDo
       session:
         create: Log In
       to_do:
@@ -28,6 +34,9 @@ en:
     index:
       name: Name
       title: My Lists
+  scheduled_to_dos:
+    index:
+      title: Scheduled ToDos for %{list}
   simple_form:
     labels:
       session:
@@ -46,5 +55,6 @@ en:
       archive_done: Archive Done
       email_list: Email Me This List
       email_sent: Email Sent!
+      scheduled_to_dos: Scheduled ToDos
       sending_email: Sending Email...
       task: Task

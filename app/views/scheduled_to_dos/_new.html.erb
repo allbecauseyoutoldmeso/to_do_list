@@ -1,0 +1,14 @@
+<%= simple_form_for(
+  [list, scheduled_to_do],
+  html: {
+    data: {
+      action: 'submit->requests#submitForm'
+    }
+  }
+) do |form| %>
+  <%= content_tag(:div, class: 'scheduled-to-do-fields') do %>
+    <%= form.input(:task, label: false) %>
+    <%= form.input(:scheduled_date, as: :date, html5: true, label: false) %>
+  <% end %>
+  <%= form.submit %>
+<% end %>

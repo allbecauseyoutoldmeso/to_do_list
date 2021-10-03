@@ -1,0 +1,5 @@
+<%= content_tag(:h1, t('.title', list: @list.name)) %>
+<%= render(
+  partial: 'scheduled_to_dos',
+  locals: { list: @list, scheduled_to_do: @scheduled_to_do }
+) %>

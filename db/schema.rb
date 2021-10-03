@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 20_210_919_163_624) do
+ActiveRecord::Schema.define(version: 20_211_002_152_527) do
   enable_extension 'plpgsql'
 
   create_table 'lists', force: :cascade do |t|
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20_210_919_163_624) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'state', default: 0
     t.bigint 'list_id'
+    t.date 'scheduled_date'
     t.index ['list_id'], name: 'index_to_dos_on_list_id'
   end
 

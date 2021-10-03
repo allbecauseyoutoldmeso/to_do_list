@@ -97,6 +97,10 @@ li {
   margin: 10px 0;
 }
 
+.list-actions {
+  @include flex-direction-row;
+}
+
 main {
   @include flex-direction-column;
   align-items: center;
@@ -124,6 +128,15 @@ nav {
 
 .priority {
   color: $alert;
+}
+
+.scheduled-date {
+  margin-left: 30px;
+  color: $alert;
+}
+
+.scheduled-to-do-fields {
+  @include flex-direction-row;
 }
 
 select {

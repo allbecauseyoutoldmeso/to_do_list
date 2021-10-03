@@ -1,0 +1,12 @@
+<%= content_tag(:div, data: { controller: 'requests' }) do %>
+  <%= content_tag(:ul) do %>
+    <%= render(
+      partial: 'scheduled_to_do',
+      collection: list.to_dos.scheduled
+    ) %>
+  <% end %>
+  <%= render(
+    partial: 'new',
+    locals: { list: list, scheduled_to_do: scheduled_to_do }
+  ) %>
+<% end %>

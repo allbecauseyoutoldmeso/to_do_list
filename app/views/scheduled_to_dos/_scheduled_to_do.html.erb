@@ -1,0 +1,8 @@
+<%= content_tag(:li) do %>
+  <%= content_tag(:span, scheduled_to_do.task) %>
+  <%= content_tag(
+    :span,
+    display_date(scheduled_to_do.scheduled_date),
+    class: 'scheduled-date'
+  ) %>
+<% end %>

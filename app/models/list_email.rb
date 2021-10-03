@@ -2,6 +2,7 @@
 
 class ListEmail
   include ActiveModel::Model
+
   attr_accessor :list
 
   validates :list, presence: true

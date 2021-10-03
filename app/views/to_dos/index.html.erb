@@ -1,8 +1,15 @@
 <%= content_tag(:h1, @list.name) %>
-<%= render(
-  partial: 'list_emails/new',
-  locals: { list: @list, email_sent: false }
-) %>
+<%= content_tag(:div, class: 'list-actions') do %>
+  <%= render(
+    partial: 'list_emails/new',
+    locals: { list: @list, email_sent: false }
+  ) %>
+  <%= link_to(
+    t('to_dos.index.scheduled_to_dos'),
+    list_scheduled_to_dos_path(@list),
+    class: 'action-item'
+  ) %>
+<% end %>
 <%= render(
   partial: 'to_dos',
   locals: { list: @list, new_to_do: @new_to_do }

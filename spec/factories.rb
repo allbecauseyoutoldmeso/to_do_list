@@ -14,6 +14,12 @@ FactoryBot.define do
     list factory: :list
   end
 
+  factory :scheduled_to_do do
+    task { Faker::Lorem.sentence(word_count: 3) }
+    list factory: :list
+    scheduled_date { 1.week.from_now }
+  end
+
   factory :session do
     transient do
       user { create(:user) }
