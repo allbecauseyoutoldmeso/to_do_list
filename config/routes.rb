@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     resources :scheduled_to_dos, only: %i[index create update]
   end
 
-  resources :list_emails, only: %i[create]
+  resources :list_emails, only: %i[update]
 
-  resources :archive_dones, only: %i[create]
+  resources :archive_dones, only: %i[update]
 
   resources :sessions, only: %i[new create] do
     post :delete, on: :collection

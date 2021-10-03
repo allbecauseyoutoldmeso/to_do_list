@@ -3,11 +3,17 @@
 class ListEmail
   include ActiveModel::Model
 
-  attr_accessor :list
+  delegate :id, :persisted?, to: :list
 
-  validates :list, presence: true
+  def initialize(list)
+    @list = list
+  end
 
   def deliver_now
     UserMailer.with(list: list).list_email.deliver_now
   end
+
+  private
+
+  attr_reader :list
 end

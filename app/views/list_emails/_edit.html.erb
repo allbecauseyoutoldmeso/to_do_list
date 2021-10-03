@@ -4,18 +4,13 @@
   class: 'list-email'
 ) do %>
   <%= simple_form_for(
-    ListEmail.new,
+    ListEmail.new(list),
     html: {
       data: {
         action: 'submit->requests#submitForm'
       }
     }
   ) do |form| %>
-    <%= form.input(
-      :list_id,
-      as: :hidden,
-      input_html: { value: list.id }
-    ) %>
     <%= form.submit(
       value: t('to_dos.index.email_list'),
       class: 'action-item list-email-button',

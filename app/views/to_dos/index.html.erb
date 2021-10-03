@@ -1,7 +1,7 @@
 <%= content_tag(:h1, @list.name) %>
 <%= content_tag(:div, class: 'list-actions') do %>
   <%= render(
-    partial: 'list_emails/new',
+    partial: 'list_emails/edit',
     locals: { list: @list, email_sent: false }
   ) %>
   <%= link_to(

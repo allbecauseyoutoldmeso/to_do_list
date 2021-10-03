@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ArchiveDonesController < ApplicationController
-  def create
-    archive_done = ArchiveDone.new(list: list)
+  def update
+    archive_done = ArchiveDone.new(list)
     archive_done.archive_to_dos
     render(json: to_dos_json)
   end
@@ -22,10 +22,6 @@ class ArchiveDonesController < ApplicationController
   end
 
   def list
-    @list ||= List.find(archive_done_params[:list_id])
-  end
-
-  def archive_done_params
-    params.require(:archive_done).permit(:list_id)
+    @list ||= List.find(params[:id])
   end
 end

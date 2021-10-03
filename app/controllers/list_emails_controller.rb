@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ListEmailsController < ApplicationController
-  def create
-    list_email = ListEmail.new(list: list)
+  def update
+    list_email = ListEmail.new(list)
     list_email.deliver_now
     render(json: list_email_form_json)
   end
@@ -12,7 +12,7 @@ class ListEmailsController < ApplicationController
   def list_email_form_json
     {
       partial: render_to_string(
-        partial: 'list_emails/new',
+        partial: 'list_emails/edit',
         locals: {
           list: list,
           email_sent: true
@@ -22,10 +22,6 @@ class ListEmailsController < ApplicationController
   end
 
   def list
-    @list ||= List.find(list_email_params[:list_id])
-  end
-
-  def list_email_params
-    params.require(:list_email).permit(:list_id)
+    @list ||= List.find(params[:id])
   end
 end

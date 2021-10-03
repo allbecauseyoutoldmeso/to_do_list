@@ -2,7 +2,11 @@
 
 FactoryBot.define do
   factory :archive_done do
-    list factory: :list
+    transient do
+      list { create(:list) }
+    end
+
+    initialize_with { new(list) }
   end
 
   factory :list do
@@ -11,7 +15,11 @@ FactoryBot.define do
   end
 
   factory :list_email do
-    list factory: :list
+    transient do
+      list { create(:list) }
+    end
+
+    initialize_with { new(list) }
   end
 
   factory :scheduled_to_do do

@@ -8,17 +8,6 @@ describe ArchiveDone do
       archive_done = build(:archive_done)
       expect(archive_done.valid?).to eq(true)
     end
-
-    it 'is false if list is not present' do
-      archive_done = build(:archive_done, list: nil)
-      expect(archive_done.valid?).to eq(false)
-
-      expect(
-        archive_done.errors.messages[:list]
-      ).to contain_exactly(
-        I18n.t('errors.messages.blank')
-      )
-    end
   end
 
   describe '#archive_to_dos' do

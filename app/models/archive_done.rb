@@ -3,13 +3,17 @@
 class ArchiveDone
   include ActiveModel::Model
 
-  attr_accessor :list
+  delegate :id, :persisted?, to: :list
 
-  validates :list, presence: true
+  def initialize(list)
+    @list = list
+  end
 
   def archive_to_dos
-    if valid?
-      list.to_dos.done.each(&:archived!)
-    end
+    list.to_dos.done.each(&:archived!)
   end
+
+  private
+
+  attr_reader :list
 end
