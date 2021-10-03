@@ -2,7 +2,8 @@
   <%= content_tag(:ul) do %>
     <%= render(
       partial: 'scheduled_to_do',
-      collection: list.to_dos.scheduled
+      collection: list.scheduled_to_dos,
+      locals: { list: list }
     ) %>
   <% end %>
   <%= render(

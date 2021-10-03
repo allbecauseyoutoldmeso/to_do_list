@@ -51,4 +51,20 @@ describe List do
       expect(described_class.expired).to contain_exactly(list_1)
     end
   end
+
+  describe '#scheduled_to_dos' do
+    it 'returns an instance of ScheduledToDo for each scheduled to-do' do
+      list = create(:list)
+      to_do_1 = create(:to_do, list: list, state: ToDo.states[:scheduled])
+      _to_do_2 = create(:to_do, list: list, state: ToDo.states[:to_do])
+
+      expect(
+        list.scheduled_to_dos
+      ).to contain_exactly(
+        instance_of(ScheduledToDo)
+      )
+
+      expect(list.scheduled_to_dos.last.id).to eq(to_do_1.id)
+    end
+  end
 end

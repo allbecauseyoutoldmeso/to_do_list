@@ -5,4 +5,15 @@
     display_date(scheduled_to_do.scheduled_date),
     class: 'scheduled-date'
   ) %>
+  <%= simple_form_for(
+    [list, scheduled_to_do],
+    html: {
+      data: {
+        action: 'submit->requests#submitForm'
+      }
+    }
+  ) do |form| %>
+    <%= form.hidden_field(:state, value: :archived) %>
+    <%= form.submit(class: 'archive-button') %>
+  <% end %>
 <% end %>

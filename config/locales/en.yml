@@ -18,6 +18,7 @@ en:
         update: Archive
       scheduled_to_do:
         create: Add Scheduled ToDo
+        update: Cancel
       session:
         create: Log In
       to_do:
@@ -36,6 +37,7 @@ en:
       title: My Lists
   scheduled_to_dos:
     index:
+      back_to_list: Back to %{list}
       title: Scheduled ToDos for %{list}
   simple_form:
     labels:

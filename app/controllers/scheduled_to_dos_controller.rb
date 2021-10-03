@@ -3,42 +3,45 @@
 class ScheduledToDosController < ApplicationController
   def index
     @list = List.find(params[:list_id])
-    @scheduled_to_do = ScheduledToDo.new(list: @list)
+    @scheduled_to_do = ScheduledToDo.new(@list.to_dos.new)
   end
 
   def create
-    scheduled_to_do = ScheduledToDo.new(scheduled_to_do_attributes)
+    scheduled_to_do = ScheduledToDo.new(list.to_dos.new)
+    scheduled_to_do.attributes = scheduled_to_do_params
 
-    new_scheduled_to_do = if scheduled_to_do.save
-                            ScheduledToDo.new(list: list)
-                          else
-                            scheduled_to_do
-                          end
+    if scheduled_to_do.save
+      render(json: scheduled_to_dos_json)
+    else
+      render(json: scheduled_to_dos_json(scheduled_to_do))
+    end
+  end
 
-    render(json: scheduled_to_dos_json(new_scheduled_to_do))
+  def update
+    to_do = list.to_dos.scheduled.find(params[:id])
+    scheduled_to_do = ScheduledToDo.new(to_do)
+    scheduled_to_do.attributes = scheduled_to_do_params
+    scheduled_to_do.save
+    render(json: scheduled_to_dos_json)
   end
 
   private
 
-  def scheduled_to_do_attributes
-    scheduled_to_do_params.merge(list: list)
-  end
-
   def scheduled_to_do_params
-    params.require(:scheduled_to_do).permit(:task, :scheduled_date)
+    params.require(:scheduled_to_do).permit(:task, :scheduled_date, :state)
   end
 
   def list
     @list ||= List.find(params[:list_id])
   end
 
-  def scheduled_to_dos_json(new_scheduled_to_do)
+  def scheduled_to_dos_json(scheduled_to_do = ScheduledToDo.new(list.to_dos.new))
     {
       partial: render_to_string(
         partial: 'scheduled_to_dos',
         locals: {
           list: list,
-          scheduled_to_do: new_scheduled_to_do
+          scheduled_to_do: scheduled_to_do
         }
       )
     }

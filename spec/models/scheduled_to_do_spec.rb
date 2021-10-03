@@ -46,14 +46,12 @@ describe ScheduledToDo do
   end
 
   describe '#save' do
-    it 'creates a scheduled to-do' do
-      list = create(:list)
+    it 'creates a new scheduled to-do' do
       task = 'Buy Christmas presents'
       scheduled_date = 1.week.from_now.to_date
 
       scheduled_to_do = build(
         :scheduled_to_do,
-        list: list,
         task: task,
         scheduled_date: scheduled_date
       )
@@ -61,33 +59,24 @@ describe ScheduledToDo do
       expect { scheduled_to_do.save }.to change { ToDo.count }.by(1)
 
       expect(ToDo.last).to have_attributes(
-        list: list,
         task: task,
         scheduled_date: scheduled_date,
         state: 'scheduled'
       )
     end
-  end
 
-  describe '#scheduled_date=' do
-    it 'converts parseable string to date' do
-      date = Date.current
+    it 'updates an existing scheduled to-do' do
+      to_do = create(:to_do, state: ToDo.states[:scheduled])
 
       scheduled_to_do = build(
         :scheduled_to_do,
-        scheduled_date: date.strftime('%d-%m-%Y')
+        to_do: to_do,
+        state: ToDo.states[:archived]
       )
 
-      expect(scheduled_to_do.scheduled_date).to eq(date)
-    end
+      scheduled_to_do.save
 
-    it 'converts non parseable string to nil' do
-      scheduled_to_do = build(
-        :scheduled_to_do,
-        scheduled_date: ''
-      )
-
-      expect(scheduled_to_do.scheduled_date).to eq(nil)
+      expect(to_do.reload.state).to eq('archived')
     end
   end
 end
