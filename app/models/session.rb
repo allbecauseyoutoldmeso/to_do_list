@@ -5,8 +5,7 @@ class Session
 
   attr_accessor :email, :password
 
-  validates :email, presence: true
-  validates :password, presence: true
+  validates :email, :password, presence: true
   validate :valid_login_credentials
 
   def user
