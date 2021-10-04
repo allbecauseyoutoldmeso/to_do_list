@@ -2,6 +2,6 @@
 
 class ActivateDue
   def activate_to_dos
-    ToDo.due.each(&:to_do!)
+    ToDo.due.each(&:priority!)
   end
 end
