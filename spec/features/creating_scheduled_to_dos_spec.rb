@@ -12,22 +12,12 @@ feature 'creating scheduled to-dos', js: true do
     log_in(user)
     visit(list_to_dos_path(list))
     click_link(I18n.t('to_dos.index.scheduled_to_dos'))
-
     fill_in('scheduled_to_do_task', with: task)
-
-    fill_in(
-      'scheduled_to_do_scheduled_date',
-      with: scheduled_date.strftime('%d/%m/%Y')
-    )
-
+    fill_in('scheduled_to_do_scheduled_date', with: input_date(scheduled_date))
     click_button(I18n.t('helpers.submit.scheduled_to_do.create'))
 
     expect(page).to have_selector('span', text: task)
-
-    expect(page).to have_selector(
-      'span',
-      text: scheduled_date.strftime("#{scheduled_date.day.ordinalize} of %B %Y")
-    )
+    expect(page).to have_selector('span', text: display_date(scheduled_date))
   end
 
   scenario 'user submits empty form' do
@@ -47,8 +37,7 @@ feature 'creating scheduled to-dos', js: true do
     end
   end
 
-  # failing on github actions due to date parsing bug - tbc!
-  xscenario 'user submits form with past date' do
+  scenario 'user submits form with past date' do
     user = create(:user)
     list = create(:list, user: user)
     task = 'Buy milk'
@@ -57,12 +46,7 @@ feature 'creating scheduled to-dos', js: true do
     log_in(user)
     visit(list_scheduled_to_dos_path(list))
     fill_in('scheduled_to_do_task', with: task)
-
-    fill_in(
-      'scheduled_to_do_scheduled_date',
-      with: scheduled_date.strftime('%d/%m/%Y')
-    )
-
+    fill_in('scheduled_to_do_scheduled_date', with: input_date(scheduled_date))
     click_button(I18n.t('helpers.submit.scheduled_to_do.create'))
 
     expect(page).to have_content(

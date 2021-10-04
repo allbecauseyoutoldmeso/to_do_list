@@ -14,6 +14,7 @@ jobs:
     env:
       RAILS_ENV: test
       JAVASCRIPT_DRIVER: headless_chrome
+      INPUT_DATE_FORMAT: '%m/%d/%Y'
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
