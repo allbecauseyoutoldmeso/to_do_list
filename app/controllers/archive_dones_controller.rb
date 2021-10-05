@@ -3,7 +3,7 @@
 class ArchiveDonesController < ApplicationController
   def update
     archive_done = ArchiveDone.new(list)
-    archive_done.archive_to_dos
+    archive_done.save
     render(json: to_dos_json)
   end
 

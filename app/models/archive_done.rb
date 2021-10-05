@@ -3,7 +3,7 @@
 class ArchiveDone
   include Presentable
 
-  def archive_to_dos
+  def save
     subject.to_dos.done.each(&:archived!)
   end
 end

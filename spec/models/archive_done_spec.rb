@@ -10,14 +10,14 @@ describe ArchiveDone do
     end
   end
 
-  describe '#archive_to_dos' do
+  describe '#save' do
     it 'updates to_dos correctly' do
       list = create(:list)
       to_do_1 = create(:to_do, list: list, state: ToDo.states[:to_do])
       to_do_2 = create(:to_do, list: list, state: ToDo.states[:done])
       archive_done = build(:archive_done, list: list)
 
-      archive_done.archive_to_dos
+      archive_done.save
 
       expect(to_do_1.reload).to be_to_do
       expect(to_do_2.reload).to be_archived
