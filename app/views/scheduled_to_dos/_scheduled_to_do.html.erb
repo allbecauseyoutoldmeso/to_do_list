@@ -7,15 +7,11 @@
       class: 'scheduled-date'
     ) %>
   <% end %>
-  <%= simple_form_for(
-    [list, scheduled_to_do],
-    html: {
-      data: {
-        action: 'submit->requests#submitForm'
-      }
+  <%= render(
+    partial: 'archive_scheduled/edit',
+    locals: {
+      list: list,
+      scheduled_to_do:  scheduled_to_do
     }
-  ) do |form| %>
-    <%= form.hidden_field(:state, value: :archived) %>
-    <%= form.submit(class: 'archive-button') %>
-  <% end %>
+  ) %>
 <% end %>

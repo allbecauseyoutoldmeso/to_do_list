@@ -17,8 +17,8 @@ feature 'cancelling scheduled to-dos', js: true do
     log_in(user)
     visit(list_scheduled_to_dos_path(list))
 
-    within("#edit_scheduled_to_do_#{to_do.id}") do
-      click_button(I18n.t('helpers.submit.scheduled_to_do.update'))
+    within("#edit_archive_scheduled_#{to_do.id}") do
+      click_button(I18n.t('helpers.submit.archive_scheduled.update'))
     end
 
     expect(page).not_to have_selector('span', text: to_do.task)

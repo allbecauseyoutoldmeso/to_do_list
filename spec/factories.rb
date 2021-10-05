@@ -9,6 +9,14 @@ FactoryBot.define do
     initialize_with { new(list) }
   end
 
+  factory :archive_scheduled do
+    transient do
+      to_do { create(:to_do) }
+    end
+
+    initialize_with { new(to_do) }
+  end
+
   factory :list do
     name { Faker::Lorem.word }
     user factory: :user

@@ -13,12 +13,13 @@ en:
               invalid_credentials: Invalid Login Credentials
   helpers:
     submit:
+      archive_scheduled:
+        update: Cancel
       list:
         create: Add List
         update: Archive
       scheduled_to_do:
         create: Add Scheduled ToDo
-        update: Cancel
       session:
         create: Log In
       to_do:

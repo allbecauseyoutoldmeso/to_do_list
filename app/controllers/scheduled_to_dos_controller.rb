@@ -17,14 +17,6 @@ class ScheduledToDosController < ApplicationController
     end
   end
 
-  def update
-    to_do = list.to_dos.scheduled.find(params[:id])
-    scheduled_to_do = ScheduledToDo.new(to_do)
-    scheduled_to_do.attributes = scheduled_to_do_params
-    scheduled_to_do.save
-    render(json: scheduled_to_dos_json)
-  end
-
   private
 
   def scheduled_to_do_params

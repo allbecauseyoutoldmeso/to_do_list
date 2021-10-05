@@ -64,19 +64,5 @@ describe ScheduledToDo do
         state: 'scheduled'
       )
     end
-
-    it 'updates an existing scheduled to-do' do
-      to_do = create(:to_do, state: ToDo.states[:scheduled])
-
-      scheduled_to_do = build(
-        :scheduled_to_do,
-        to_do: to_do,
-        state: ToDo.states[:archived]
-      )
-
-      scheduled_to_do.save
-
-      expect(to_do.reload.state).to eq('archived')
-    end
   end
 end
