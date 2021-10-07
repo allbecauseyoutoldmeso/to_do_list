@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class ToDosController < ApplicationController
+  before_action :assign_list
+  before_action :assign_to_do, only: %i[show update]
+
   def index
-    @list = current_user.lists.find(params[:list_id])
-    @new_to_do = @list.to_dos.new
+    @new_to_do = list.to_dos.new
   end
 
   def create
@@ -13,15 +15,20 @@ class ToDosController < ApplicationController
   end
 
   def update
-    to_do = list.to_dos.find(params[:id])
     to_do.update(to_do_params)
     render(json: to_dos_json(list.to_dos.new))
   end
 
   private
 
-  def list
-    @list ||= current_user.lists.find(params[:list_id])
+  attr_reader :list, :to_do
+
+  def assign_list
+    @list = current_user.lists.find(params[:list_id])
+  end
+
+  def assign_to_do
+    @to_do = list.to_dos.find(params[:id])
   end
 
   def to_do_params
