@@ -55,17 +55,17 @@ describe ToDo do
     it 'returns archived to-dos past expiry date' do
       to_do_1 = create(
         :to_do,
-        state: ToDo.states[:archived],
+        state: described_class.states[:archived],
         updated_at: (ToDo::EXPIRY_TIME + 1.day).ago
       )
       _to_do_2 = create(
         :to_do,
-        state: ToDo.states[:archived],
+        state: described_class.states[:archived],
         updated_at: (ToDo::EXPIRY_TIME - 1.day).ago
       )
       _to_do_3 = create(
         :to_do,
-        state: ToDo.states[:to_do],
+        state: described_class.states[:to_do],
         updated_at: (ToDo::EXPIRY_TIME + 1.day).ago
       )
 
@@ -77,22 +77,22 @@ describe ToDo do
     it 'returns scheduled to-dos with scheduled_date of today or earlier' do
       to_do_1 = create(
         :to_do,
-        state: ToDo.states[:scheduled],
+        state: described_class.states[:scheduled],
         scheduled_date: Date.current
       )
       to_do_2 = create(
         :to_do,
-        state: ToDo.states[:scheduled],
+        state: described_class.states[:scheduled],
         scheduled_date: 1.day.ago
       )
       _to_do_3 = create(
         :to_do,
-        state: ToDo.states[:scheduled],
+        state: described_class.states[:scheduled],
         scheduled_date: 1.day.from_now
       )
       _to_do_4 = create(
         :to_do,
-        state: ToDo.states[:to_do],
+        state: described_class.states[:to_do],
         scheduled_date: 1.day.ago
       )
 

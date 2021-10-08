@@ -34,17 +34,17 @@ describe List do
     it 'returns archived lists past expiry date' do
       list_1 = create(
         :list,
-        state: List.states[:archived],
+        state: described_class.states[:archived],
         updated_at: (List::EXPIRY_TIME + 1.day).ago
       )
       _list_2 = create(
         :list,
-        state: List.states[:archived],
+        state: described_class.states[:archived],
         updated_at: (List::EXPIRY_TIME - 1.day).ago
       )
       _list_3 = create(
         :list,
-        state: List.states[:active],
+        state: described_class.states[:active],
         updated_at: (List::EXPIRY_TIME + 1.day).ago
       )
 

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ToDo do
+describe Session do
   describe '#valid?' do
     it 'is true for factory' do
       session = build(:session)

@@ -7,17 +7,17 @@ feature 'sessions' do
     user = create(:user)
     visit(root_path)
 
-    expect(page.current_path).to eq(new_session_path)
+    expect(page).to have_current_path(new_session_path, ignore_query: true)
 
     fill_in(I18n.t('simple_form.labels.session.email'), with: user.email)
     fill_in(I18n.t('simple_form.labels.session.password'), with: user.password)
     click_button(I18n.t('helpers.submit.session.create'))
 
-    expect(page.current_path).to eq(root_path)
+    expect(page).to have_current_path(root_path, ignore_query: true)
 
     click_button(I18n.t('layouts.nav_bar.log_out'))
 
-    expect(page.current_path).to eq(new_session_path)
+    expect(page).to have_current_path(new_session_path, ignore_query: true)
   end
 
   scenario 'user submits form with no email' do

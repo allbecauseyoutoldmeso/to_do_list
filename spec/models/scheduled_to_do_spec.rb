@@ -31,7 +31,7 @@ describe ScheduledToDo do
         scheduled_date: scheduled_date
       )
 
-      expect { scheduled_to_do.save }.to change { ToDo.count }.by(1)
+      expect { scheduled_to_do.save }.to change(ToDo, :count).by(1)
 
       expect(ToDo.last).to have_attributes(
         task: task,

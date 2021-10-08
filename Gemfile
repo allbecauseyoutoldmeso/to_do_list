@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.12', require: false
+  gem 'rubocop-rspec', '~> 2.5', require: false
 end
 
 group :development do

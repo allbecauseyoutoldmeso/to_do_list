@@ -29,7 +29,7 @@ feature 'updating lists' do
       click_button(I18n.t('lists.archive.reactivate'))
     end
 
-    expect(page.current_path).to eq(lists_path)
+    expect(page).to have_current_path(lists_path, ignore_query: true)
     expect(page).to have_selector('li', text: list.name)
   end
 end

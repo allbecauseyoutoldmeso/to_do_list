@@ -1,4 +1,6 @@
-require: rubocop-rails
+require:
+  - rubocop-rails
+  - rubocop-rspec
 
 AllCops:
   Exclude:
@@ -21,3 +23,9 @@ Metrics/AbcSize:
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - app/controllers/concerns/*
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/Capybara/FeatureMethods:
+  EnabledMethods: [feature, scenario]
