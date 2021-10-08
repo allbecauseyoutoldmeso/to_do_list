@@ -1,18 +1,9 @@
 # frozen_string_literal: true
 
 class ScheduledToDo
-  include Presentable
+  include Schedulable
 
-  delegate_attributes :scheduled_date, :state, :task
+  delegate_attributes :task
 
-  before_save :set_state
-
-  validates :task, :scheduled_date, presence: true
-  validates_with ScheduledDateValidator
-
-  private
-
-  def set_state
-    self.state = ToDo.states[:scheduled]
-  end
+  validates :task, presence: true
 end

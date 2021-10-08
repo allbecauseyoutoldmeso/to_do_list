@@ -3,44 +3,19 @@
 require 'rails_helper'
 
 describe ScheduledToDo do
+  it_behaves_like 'schedulable' do
+    let(:presenter) { build(:scheduled_to_do) }
+  end
+
   describe '#valid?' do
-    it 'is true for factory' do
-      to_do = build(:scheduled_to_do)
-      expect(to_do.valid?).to eq(true)
-    end
-
     it 'is false if task is not present' do
-      to_do = build(:scheduled_to_do, task: nil)
-      expect(to_do.valid?).to eq(false)
+      scheduled_to_do = build(:scheduled_to_do, task: nil)
+      expect(scheduled_to_do.valid?).to eq(false)
 
       expect(
-        to_do.errors.messages[:task]
+        scheduled_to_do.errors.messages[:task]
       ).to contain_exactly(
         I18n.t('errors.messages.blank')
-      )
-    end
-
-    it 'is false if scheduled_date is not present' do
-      to_do = build(:scheduled_to_do, scheduled_date: nil)
-      expect(to_do.valid?).to eq(false)
-
-      expect(
-        to_do.errors.messages[:scheduled_date]
-      ).to contain_exactly(
-        I18n.t('errors.messages.blank')
-      )
-    end
-
-    it 'is false if scheduled_date is not in future' do
-      to_do = build(:scheduled_to_do, scheduled_date: 1.day.ago)
-      expect(to_do.valid?).to eq(false)
-
-      expect(
-        to_do.errors.messages[:scheduled_date]
-      ).to contain_exactly(
-        I18n.t(
-          'activemodel.errors.models.scheduled_to_do.attributes.scheduled_date.not_in_future'
-        )
       )
     end
   end
