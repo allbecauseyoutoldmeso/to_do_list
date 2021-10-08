@@ -13,7 +13,7 @@ feature 'updating done to-dos', js: true do
     visit(list_to_dos_path(list))
     click_button(I18n.t('to_dos.index.archive_done'))
 
-    expect(page).to have_selector('span', text: to_do_1.task)
-    expect(page).not_to have_selector('span', text: to_do_2.task)
+    expect(page).to have_link(to_do_1.task)
+    expect(page).not_to have_link(to_do_2.task)
   end
 end

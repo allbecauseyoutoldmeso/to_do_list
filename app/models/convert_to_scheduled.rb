@@ -4,7 +4,6 @@ class ConvertToScheduled
   include Presentable
 
   delegate_attributes :scheduled_date, :state
-  delegate :task, to: :subject
 
   before_save :set_state
 

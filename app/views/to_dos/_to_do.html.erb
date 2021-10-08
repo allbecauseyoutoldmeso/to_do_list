@@ -1,11 +1,11 @@
 <%= content_tag(:li) do %>
-  <%= content_tag(
-    :span,
+  <%= link_to(
     to_do.task,
+    list_to_do_path(list, to_do),
     class: to_do.state
   ) %>
   <%= simple_form_for(
-    [to_do.list, to_do],
+    [list, to_do],
     html: {
       data: {
         action: 'change->requests#submitForm'

@@ -175,6 +175,23 @@ select {
   margin: 40px;
 }
 
+th {
+  &:last-child {
+    margin-left: 20px;
+    color: $alert;
+  }
+}
+
+.to-do-details {
+  @include flex-direction-column;
+  align-items: center;
+}
+
+tr {
+  @include flex-direction-row;
+  justify-content: space-between;
+}
+
 ul {
   padding: 0;
   margin: 20px 10px;

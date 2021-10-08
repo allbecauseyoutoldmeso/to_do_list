@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ArchiveScheduledController < ApplicationController
+  include ToDoable
+
   def update
     archive_scheduled.save
     render(json: scheduled_to_dos_json)
@@ -10,14 +12,6 @@ class ArchiveScheduledController < ApplicationController
 
   def archive_scheduled
     @archive_scheduled ||= ArchiveScheduled.new(to_do)
-  end
-
-  def to_do
-    @to_do ||= list.to_dos.scheduled.find(params[:id])
-  end
-
-  def list
-    @list ||= current_user.lists.find(params[:list_id])
   end
 
   def scheduled_to_dos_json

@@ -2,7 +2,8 @@
   <%= content_tag(:ul) do %>
     <%= render(
       partial: 'to_dos/to_do',
-      collection: list.to_dos.active.persisted
+      collection: list.to_dos.active.persisted,
+      locals: { list: list }
     ) %>
   <% end %>
   <%= render(

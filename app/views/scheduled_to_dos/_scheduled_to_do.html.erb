@@ -1,6 +1,9 @@
 <%= content_tag(:li) do %>
   <%= content_tag(:div, class: 'scheduled-to-do') do %>
-    <%= content_tag(:span, scheduled_to_do.task) %>
+    <%= link_to(
+      scheduled_to_do.task,
+      list_to_do_path(list, scheduled_to_do)
+    ) %>
     <%= content_tag(
       :span,
       display_date(scheduled_to_do.scheduled_date),

@@ -1,0 +1,10 @@
+<%= simple_form_for(
+  [list, ConvertFromScheduled.new(to_do)],
+  html: {
+    data: {
+      action: 'submit->requests#submitForm'
+    }
+  }
+) do |form| %>
+  <%= form.submit %>
+<% end %>

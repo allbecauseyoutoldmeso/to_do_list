@@ -22,6 +22,6 @@ class ListEmailsController < ApplicationController
   end
 
   def list
-    @list ||= List.find(params[:id])
+    @list ||= current_user.lists.find(params[:id])
   end
 end

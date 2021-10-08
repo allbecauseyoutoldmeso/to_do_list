@@ -1,0 +1,17 @@
+<%= simple_form_for(
+  [list, convert_to_scheduled],
+  html: {
+    data: {
+      action: 'submit->requests#submitForm'
+    }
+  }
+) do |form| %>
+  <%= form.input(
+    :scheduled_date,
+    as: :date,
+    html5: true,
+    label: false,
+    input_html: { min: Date.tomorrow }
+  ) %>
+  <%= form.submit %>
+<% end %>
