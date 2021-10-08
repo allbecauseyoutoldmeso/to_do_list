@@ -25,6 +25,16 @@ FactoryBot.define do
     initialize_with { new(to_do) }
   end
 
+  factory :convert_to_scheduled do
+    transient do
+      to_do { create(:to_do) }
+    end
+
+    initialize_with { new(to_do) }
+
+    scheduled_date { Date.tomorrow }
+  end
+
   factory :list do
     name { Faker::Lorem.word }
     user factory: :user
