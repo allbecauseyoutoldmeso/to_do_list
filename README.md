@@ -2,6 +2,8 @@
 
 Lightweight lists app built using Rails and Stimulus.
 
+<img src='public/to_do_list.png' width='50%'>
+
 ## Running Locally
 
 * Clone and `cd` into this repository.
