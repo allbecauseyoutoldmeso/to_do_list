@@ -11,11 +11,9 @@ module ApplicationHelper
     end
   end
 
-  def current_user
-    @current_user
-  end
-
   def display_date(date)
     date.strftime("#{date.day.ordinalize} of %B %Y")
   end
+
+  attr_reader :current_user
 end

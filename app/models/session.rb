@@ -15,7 +15,7 @@ class Session
   private
 
   def valid_login_credentials
-    if email.present? && password.present? && !user.present?
+    if email.present? && password.present? && user.blank?
       errors.add(:base, :invalid_credentials)
     end
   end

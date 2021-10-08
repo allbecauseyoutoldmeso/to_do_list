@@ -7,7 +7,7 @@ class ToDo < ApplicationRecord
 
   validates :task, :state, presence: true
 
-  enum state: %i[to_do done archived priority scheduled]
+  enum state: { to_do: 0, done: 1, archived: 2, priority: 3, scheduled: 4 }
 
   scope :active, -> { where.not(state: %i[archived scheduled]) }
   scope :persisted, -> { where.not(id: nil) }

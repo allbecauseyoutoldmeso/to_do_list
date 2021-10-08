@@ -5,11 +5,16 @@ class List < ApplicationRecord
 
   belongs_to :user
 
-  has_many :to_dos, -> { order(:created_at) }, dependent: :destroy
+  has_many(
+    :to_dos,
+    -> { order(:created_at) },
+    dependent: :destroy,
+    inverse_of: :list
+  )
 
   validates :name, presence: true
 
-  enum state: %i[active archived]
+  enum state: { active: 0, archived: 1 }
 
   scope :persisted, -> { where.not(id: nil) }
 
