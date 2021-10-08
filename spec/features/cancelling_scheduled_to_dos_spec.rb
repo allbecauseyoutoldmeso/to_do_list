@@ -21,6 +21,6 @@ feature 'cancelling scheduled to-dos', js: true do
       click_button(I18n.t('helpers.submit.archive_scheduled.update'))
     end
 
-    expect(page).not_to have_selector('span', text: to_do.task)
+    expect(page).not_to have_link(to_do.task)
   end
 end

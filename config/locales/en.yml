@@ -3,6 +3,10 @@ en:
   activemodel:
     errors:
       models:
+        convert_to_scheduled:
+          attributes:
+            scheduled_date:
+              not_in_future: Must be in the future
         scheduled_to_do:
           attributes:
             scheduled_date:
@@ -15,6 +19,10 @@ en:
     submit:
       archive_scheduled:
         update: Cancel
+      convert_from_scheduled:
+        update: Convert From Scheduled
+      convert_to_scheduled:
+        update: Convert To Scheduled
       list:
         create: Add List
         update: Archive
@@ -52,6 +60,7 @@ en:
       archived: archive
       done: done
       priority: priority
+      scheduled: scheduled
       to_do: to do
   to_dos:
     index:
@@ -60,4 +69,10 @@ en:
       email_sent: Email Sent!
       scheduled_to_dos: Scheduled ToDos
       sending_email: Sending Email...
+      task: Task
+    show:
+      all_scheduled_to_dos: All scheduled todos for %{list}
+      all_to_dos: All todos for %{list}
+      scheduled_date: Scheduled Date
+      state: State
       task: Task

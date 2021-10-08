@@ -1,0 +1,31 @@
+<%= content_tag(
+  :div,
+  class: 'to-do-details',
+  data: { controller: 'requests' }
+) do %>
+  <% if to_do.scheduled? %>
+    <%= link_to(
+      t('to_dos.show.all_scheduled_to_dos', list: list.name),
+      list_scheduled_to_dos_path(list),
+      class: 'action-item'
+    ) %>
+  <% else %>
+    <%= link_to(
+      t('to_dos.show.all_to_dos', list: list.name),
+      list_to_dos_path(list),
+      class: 'action-item'
+    ) %>
+  <% end %>
+  <%= render(partial: 'to_dos/to_do_table', locals: { to_do: to_do })  %>
+  <% if to_do.scheduled? %>
+    <%= render(
+      partial: 'convert_from_scheduled/edit',
+      locals: { to_do: to_do, list: list }
+    ) %>
+  <% else %>
+    <%= render(
+      partial: 'convert_to_scheduled/edit',
+      locals: { list: list, convert_to_scheduled: convert_to_scheduled }
+    ) %>
+  <% end %>
+<% end %>

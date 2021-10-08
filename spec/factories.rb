@@ -11,10 +11,28 @@ FactoryBot.define do
 
   factory :archive_scheduled do
     transient do
+      to_do { create(:to_do, :scheduled) }
+    end
+
+    initialize_with { new(to_do) }
+  end
+
+  factory :convert_from_scheduled do
+    transient do
+      to_do { create(:to_do, :scheduled) }
+    end
+
+    initialize_with { new(to_do) }
+  end
+
+  factory :convert_to_scheduled do
+    transient do
       to_do { create(:to_do) }
     end
 
     initialize_with { new(to_do) }
+
+    scheduled_date { Date.tomorrow }
   end
 
   factory :list do
@@ -37,6 +55,7 @@ FactoryBot.define do
     end
 
     initialize_with { new(to_do) }
+
     task { Faker::Lorem.sentence(word_count: 3) }
     scheduled_date { 1.week.from_now }
   end
@@ -53,6 +72,11 @@ FactoryBot.define do
   factory :to_do do
     task { Faker::Lorem.sentence(word_count: 3) }
     list factory: :list
+
+    trait :scheduled do
+      state { ToDo.states[:scheduled] }
+      scheduled_date { Date.tomorrow }
+    end
   end
 
   factory :user do

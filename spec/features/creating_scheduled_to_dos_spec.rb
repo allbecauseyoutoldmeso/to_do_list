@@ -16,7 +16,7 @@ feature 'creating scheduled to-dos', js: true do
     fill_in('scheduled_to_do_scheduled_date', with: input_date(scheduled_date))
     click_button(I18n.t('helpers.submit.scheduled_to_do.create'))
 
-    expect(page).to have_selector('span', text: task)
+    expect(page).to have_link(task)
     expect(page).to have_selector('span', text: display_date(scheduled_date))
   end
 
