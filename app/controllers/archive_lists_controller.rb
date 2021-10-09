@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class ArchiveDonesController < ApplicationController
+class ArchiveListsController < ApplicationController
   include Listable
 
   def update
-    archive_done = ArchiveDone.new(list)
-    archive_done.save
+    archive_list = ArchiveList.new(list)
+    archive_list.save
     render(json: to_dos_json)
   end
 
@@ -17,7 +17,7 @@ class ArchiveDonesController < ApplicationController
         partial: 'to_dos/to_dos',
         locals: {
           list: list,
-          new_to_do: ToDo.new
+          new_to_do: list.to_dos.new
         }
       )
     }

@@ -17,6 +17,10 @@ en:
               invalid_credentials: Invalid Login Credentials
   helpers:
     submit:
+      activate_list:
+        update: Reactivate
+      archive_list:
+        update: Archive
       archive_scheduled:
         update: Cancel
       convert_from_scheduled:
@@ -25,13 +29,12 @@ en:
         update: Convert To Scheduled
       list:
         create: Add List
-        update: Archive
       scheduled_to_do:
-        create: Add Scheduled ToDo
+        create: Add Scheduled To-Do
       session:
         create: Log In
       to_do:
-        create: Add ToDo
+        create: Add To-Do
   layouts:
     nav_bar:
       archive: Archived Lists
@@ -39,7 +42,6 @@ en:
       log_out: Log Out
   lists:
     archive:
-      reactivate: Reactivate
       title: Archived Lists
     index:
       name: Name
@@ -47,7 +49,7 @@ en:
   scheduled_to_dos:
     index:
       back_to_list: Back to %{list}
-      title: Scheduled ToDos for %{list}
+      title: Scheduled To-Dos for %{list}
   simple_form:
     labels:
       session:
@@ -67,12 +69,12 @@ en:
       archive_done: Archive Done
       email_list: Email Me This List
       email_sent: Email Sent!
-      scheduled_to_dos: Scheduled ToDos
+      scheduled_to_dos: Scheduled To-Dos
       sending_email: Sending Email...
       task: Task
     show:
-      all_scheduled_to_dos: All scheduled todos for %{list}
-      all_to_dos: All todos for %{list}
+      all_scheduled_to_dos: All scheduled to-dos for %{list}
+      all_to_dos: All to-dos for %{list}
       scheduled_date: Scheduled Date
       state: State
       task: Task

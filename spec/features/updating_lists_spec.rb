@@ -10,8 +10,8 @@ feature 'updating lists' do
     log_in(user)
     visit(root_path)
 
-    within("#edit_list_#{list.id}") do
-      click_button(I18n.t('helpers.submit.list.update'))
+    within("#edit_archive_list_#{list.id}") do
+      click_button(I18n.t('helpers.submit.archive_list.update'))
     end
 
     expect(page).not_to have_selector('li', text: list.name)
@@ -25,8 +25,8 @@ feature 'updating lists' do
     visit(root_path)
     click_link(I18n.t('layouts.nav_bar.archive'))
 
-    within("#edit_list_#{list.id}") do
-      click_button(I18n.t('lists.archive.reactivate'))
+    within("#edit_activate_list_#{list.id}") do
+      click_button(I18n.t('helpers.submit.activate_list.update'))
     end
 
     expect(page).to have_current_path(lists_path, ignore_query: true)

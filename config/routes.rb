@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "lists#index"
 
+  resources :activate_lists, only: %i[update]
   resources :archive_dones, only: %i[update]
+  resources :archive_lists, only: %i[update]
 
   resources :lists, only: %i[index new create update] do
     get :archive, on: :collection

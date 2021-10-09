@@ -1,14 +1,4 @@
 <%= content_tag(:li) do %>
   <%= link_to(list.name, list_to_dos_path(list)) %>
-  <%= simple_form_for(
-    list,
-    html: {
-      data: {
-        action: 'submit->requests#submitForm'
-      }
-    }
-  ) do |form| %>
-    <%= form.hidden_field(:state, value: :archived) %>
-    <%= form.submit(class: 'archive-button') %>
-  <% end %>
+  <%= render(partial: 'archive_lists/edit', locals: { list: list }) %>
 <% end %>

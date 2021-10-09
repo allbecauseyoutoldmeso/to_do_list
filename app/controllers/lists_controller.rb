@@ -16,21 +16,6 @@ class ListsController < ApplicationController
     render(json: lists_json(new_list))
   end
 
-  def update
-    list = current_user.lists.find(params[:id])
-    list.update(list_params)
-
-    respond_to do |format|
-      format.html do
-        redirect_to(lists_path)
-      end
-
-      format.json do
-        render(json: lists_json(current_user.lists.new))
-      end
-    end
-  end
-
   private
 
   def list_params

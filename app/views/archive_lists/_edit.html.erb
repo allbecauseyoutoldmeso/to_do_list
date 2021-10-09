@@ -1,0 +1,10 @@
+<%= simple_form_for(
+  ArchiveList.new(list),
+  html: {
+    data: {
+      action: 'submit->requests#submitForm'
+    }
+  }
+) do |form| %>
+  <%= form.submit(class: 'archive-button') %>
+<% end %>

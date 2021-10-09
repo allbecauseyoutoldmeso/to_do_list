@@ -17,9 +17,6 @@ Metrics/BlockLength:
     - spec/**/*
 Naming/VariableNumber:
   EnforcedStyle: snake_case
-Metrics/AbcSize:
-  Exclude:
-    - app/controllers/lists_controller.rb
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - app/controllers/concerns/*
