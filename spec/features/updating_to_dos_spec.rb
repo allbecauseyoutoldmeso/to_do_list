@@ -11,8 +11,8 @@ feature 'updaing to-dos', js: true do
     log_in(user)
     visit(list_to_dos_path(list))
 
-    within("#edit_to_do_#{to_do.id}") do
-      select(I18n.t('to_do.states.priority'), from: 'to_do_state')
+    within("#edit_update_state_#{to_do.id}") do
+      select(I18n.t('to_do.states.priority'), from: 'update_state_state')
     end
 
     expect(page).to have_link(to_do.task, class: 'priority')
@@ -26,18 +26,19 @@ feature 'updaing to-dos', js: true do
     log_in(user)
     visit(list_to_dos_path(list))
 
-    expect(
-      find('option', text: I18n.t('to_do.states.archived'))
-    ).to be_disabled
+    expect(page).not_to have_selector(
+      'option',
+      text: I18n.t('to_do.states.archived')
+    )
 
-    within("#edit_to_do_#{to_do.id}") do
-      select(I18n.t('to_do.states.done'), from: 'to_do_state')
+    within("#edit_update_state_#{to_do.id}") do
+      select(I18n.t('to_do.states.done'), from: 'update_state_state')
     end
 
     expect(page).to have_link(to_do.task, class: 'done')
 
-    within("#edit_to_do_#{to_do.id}") do
-      select(I18n.t('to_do.states.archived'), from: 'to_do_state')
+    within("#edit_update_state_#{to_do.id}") do
+      select(I18n.t('to_do.states.archived'), from: 'update_state_state')
     end
 
     expect(page).not_to have_text(to_do.task)

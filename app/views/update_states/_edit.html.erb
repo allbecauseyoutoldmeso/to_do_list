@@ -1,0 +1,15 @@
+<%= simple_form_for(
+  [list, UpdateState.new(to_do)],
+  html: {
+    data: {
+      action: 'change->requests#submitForm'
+    }
+  }
+) do |form| %>
+  <%= form.input(
+    :state,
+    label: false,
+    collection: form.object.options,
+    selected: to_do.state
+  ) %>
+<% end %>

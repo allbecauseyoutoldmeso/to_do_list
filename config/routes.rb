@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :convert_to_scheduled, only: %i[update]
     resources :scheduled_to_dos, only: %i[index create]
     resources :to_dos, only: %i[index create show update]
+    resources :update_states, only: %i[update]
   end
 
   resources :list_emails, only: %i[update]

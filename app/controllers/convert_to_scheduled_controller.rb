@@ -4,6 +4,7 @@ class ConvertToScheduledController < ApplicationController
   include ToDoable
 
   def update
+    convert_to_scheduled = ConvertToScheduled.new(to_do)
     convert_to_scheduled.attributes = convert_to_scheduled_params
 
     if convert_to_scheduled.save
@@ -17,10 +18,6 @@ class ConvertToScheduledController < ApplicationController
 
   def convert_to_scheduled_params
     params.require(:convert_to_scheduled).permit(:scheduled_date)
-  end
-
-  def convert_to_scheduled
-    @convert_to_scheduled ||= ConvertToScheduled.new(to_do)
   end
 
   def to_do_details_json(convert_to_scheduled = ConvertToScheduled.new(to_do))

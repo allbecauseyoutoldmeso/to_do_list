@@ -95,6 +95,14 @@ FactoryBot.define do
     end
   end
 
+  factory :update_state do
+    transient do
+      to_do { create(:to_do, :scheduled) }
+    end
+
+    initialize_with { new(to_do) }
+  end
+
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password }

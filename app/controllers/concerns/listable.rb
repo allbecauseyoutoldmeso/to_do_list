@@ -4,7 +4,7 @@ module Listable
   extend ActiveSupport::Concern
 
   included do
-    before_action :assign_list
+    before_action :assign_list, only: %i[update show]
 
     attr_reader :list
   end

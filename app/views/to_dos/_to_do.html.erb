@@ -4,19 +4,8 @@
     list_to_do_path(list, to_do),
     class: to_do.state
   ) %>
-  <%= simple_form_for(
-    [list, to_do],
-    html: {
-      data: {
-        action: 'change->requests#submitForm'
-      }
-    }
-  ) do |form| %>
-    <%= form.input(
-      :state,
-      label: false,
-      collection: state_options(to_do),
-      selected: to_do.state
-    ) %>
-  <% end %>
+  <%= render(
+    partial: 'update_states/edit',
+    locals: { list: list, to_do: to_do }
+  ) %>
 <% end %>

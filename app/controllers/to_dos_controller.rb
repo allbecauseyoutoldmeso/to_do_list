@@ -19,11 +19,6 @@ class ToDosController < ApplicationController
     end
   end
 
-  def update
-    to_do.update(to_do_params)
-    render(json: to_dos_json(list.to_dos.new))
-  end
-
   private
 
   def to_do_params
