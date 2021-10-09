@@ -2,6 +2,7 @@
 
 module Listable
   extend ActiveSupport::Concern
+  include JsonResponsable
 
   included do
     before_action :assign_list, only: %i[update show]

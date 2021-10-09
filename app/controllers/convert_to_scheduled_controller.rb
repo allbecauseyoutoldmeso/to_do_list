@@ -19,17 +19,4 @@ class ConvertToScheduledController < ApplicationController
   def convert_to_scheduled_params
     params.require(:convert_to_scheduled).permit(:scheduled_date)
   end
-
-  def to_do_details_json(convert_to_scheduled = ConvertToScheduled.new(to_do))
-    {
-      partial: render_to_string(
-        partial: 'to_dos/details',
-        locals: {
-          list: list,
-          to_do: to_do,
-          convert_to_scheduled: convert_to_scheduled
-        }
-      )
-    }
-  end
 end

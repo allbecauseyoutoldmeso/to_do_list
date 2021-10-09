@@ -15,16 +15,4 @@ class UpdateStatesController < ApplicationController
   def update_state_params
     params.require(:update_state).permit(:state)
   end
-
-  def to_dos_json
-    {
-      partial: render_to_string(
-        partial: 'to_dos/to_dos',
-        locals: {
-          list: list,
-          new_to_do: list.to_dos.new
-        }
-      )
-    }
-  end
 end

@@ -8,18 +8,4 @@ class ArchiveDonesController < ApplicationController
     archive_done.save
     render(json: to_dos_json)
   end
-
-  private
-
-  def to_dos_json
-    {
-      partial: render_to_string(
-        partial: 'to_dos/to_dos',
-        locals: {
-          list: list,
-          new_to_do: ToDo.new
-        }
-      )
-    }
-  end
 end

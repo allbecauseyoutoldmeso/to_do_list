@@ -9,8 +9,12 @@ class ToDosController < ApplicationController
 
   def create
     to_do = list.to_dos.new(to_do_params)
-    new_to_do = to_do.save ? list.to_dos.new : to_do
-    render(json: to_dos_json(new_to_do))
+
+    if to_do.save
+      render(json: to_dos_json)
+    else
+      render(json: to_dos_json(to_do))
+    end
   end
 
   def show
@@ -23,17 +27,5 @@ class ToDosController < ApplicationController
 
   def to_do_params
     params.require(:to_do).permit(:task, :state)
-  end
-
-  def to_dos_json(new_to_do)
-    {
-      partial: render_to_string(
-        partial: 'to_dos',
-        locals: {
-          list: list,
-          new_to_do: new_to_do
-        }
-      )
-    }
   end
 end
