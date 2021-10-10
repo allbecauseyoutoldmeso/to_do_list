@@ -9,7 +9,7 @@ feature 'emailing list', js: true do
 
     log_in(user)
     visit(list_to_dos_path(list))
-    click_button(I18n.t('to_dos.index.email_list'))
+    click_button(I18n.t('helpers.submit.list_email.update'))
 
     expect(page).to have_content(I18n.t('to_dos.index.email_sent'))
 

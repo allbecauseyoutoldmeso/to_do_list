@@ -1,0 +1,12 @@
+<%= content_tag(:div, data: { controller: 'requests' }) do %>
+  <%= content_tag(
+    :h1,
+    list.name,
+    data: { show_hide_target: 'toggleable' },
+    class: ('hidden' if rename_list.errors.any?)
+  ) %>
+  <%= render(
+    partial: 'rename_lists/edit',
+    locals: { rename_list: rename_list }
+  ) %>
+<% end %>

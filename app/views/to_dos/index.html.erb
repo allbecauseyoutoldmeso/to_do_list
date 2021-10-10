@@ -1,16 +1,14 @@
-<%= content_tag(:h1, @list.name) %>
-<%= content_tag(:div, class: 'list-actions') do %>
+<%= content_tag(:div, data: { controller: 'show-hide' }) do %>
   <%= render(
-    partial: 'list_emails/edit',
-    locals: { list: @list, email_sent: false }
+    partial: 'list_name',
+    locals: {
+      list: @list,
+      rename_list: RenameList.new(@list)
+    }
   ) %>
-  <%= link_to(
-    t('to_dos.index.scheduled_to_dos'),
-    list_scheduled_to_dos_path(@list),
-    class: 'action-item'
+  <%= render(partial: 'list_actions', locals: { list: @list } ) %>
+  <%= render(
+    partial: 'to_dos',
+    locals: { list: @list, new_to_do: @new_to_do }
   ) %>
 <% end %>
-<%= render(
-  partial: 'to_dos',
-  locals: { list: @list, new_to_do: @new_to_do }
-) %>

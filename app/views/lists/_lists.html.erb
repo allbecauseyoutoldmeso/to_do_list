@@ -10,11 +10,7 @@
       }
     }
   ) do |form| %>
-    <%= form.input(
-      :name,
-      label: false,
-      input_html: { title: t('lists.index.name') }
-    ) %>
+    <%= form.input(:name, label: false) %>
     <%= form.submit %>
   <% end %>
 <% end %>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :list_emails, only: %i[update]
+  resources :rename_lists, only: %i[update]
 
   resources :sessions, only: %i[new create] do
     post :delete, on: :collection

@@ -1,0 +1,13 @@
+<%= simple_form_for(
+  rename_list,
+  html: {
+    data: {
+      action: 'submit->requests#submitForm',
+      show_hide_target: 'toggleable'
+    },
+    class: ('hidden' unless rename_list.errors.any?)
+  }
+) do |form| %>
+  <%= form.input(:name, label: false) %>
+  <%= form.submit %>
+<% end %>

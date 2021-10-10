@@ -40,6 +40,7 @@ a {
   border: none;
   padding: 3px;
   font-size: 16px;
+  font-family: inherit;
   color: black;
   text-decoration: none;
   background-color: transparent;
@@ -79,6 +80,10 @@ form {
 h1 {
   margin-bottom: 0px;
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .input {

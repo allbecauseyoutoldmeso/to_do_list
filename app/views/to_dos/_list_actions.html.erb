@@ -1,0 +1,17 @@
+<%= content_tag(:div, class: 'list-actions') do %>
+  <%= render(
+    partial: 'list_emails/edit',
+    locals: { list: list, email_sent: false }
+  ) %>
+  <%= link_to(
+    t('to_dos.index.scheduled_to_dos'),
+    list_scheduled_to_dos_path(list),
+    class: 'action-item'
+  ) %>
+  <%= content_tag(
+    :button,
+    t('to_dos.index.rename_list'),
+    class: 'action-item',
+    data: { action: 'click->show-hide#toggle' }
+  ) %>
+<% end %>

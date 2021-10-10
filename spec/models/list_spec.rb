@@ -9,7 +9,7 @@ describe List do
       expect(list.valid?).to eq(true)
     end
 
-    it 'is false if email is not present' do
+    it 'is false if name is not present' do
       list = build(:list, name: nil)
       expect(list.valid?).to eq(false)
 
