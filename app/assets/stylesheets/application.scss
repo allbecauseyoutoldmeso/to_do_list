@@ -60,6 +60,12 @@ body {
   font-family: 'Work Sans', sans-serif;
 }
 
+button {
+  font-family: inherit;
+  margin: 10px;
+  font-size: 16px;
+}
+
 .done {
   text-decoration: line-through;
 }

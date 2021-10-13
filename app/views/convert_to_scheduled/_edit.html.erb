@@ -1,17 +1,30 @@
-<%= simple_form_for(
-  [list, convert_to_scheduled],
-  html: {
-    data: {
-      action: 'submit->requests#submitForm'
+<%= content_tag(:div, data: { controller: 'show-hide' }) do %>
+  <%= simple_form_for(
+    [list, convert_to_scheduled],
+    html: {
+      class: ('hidden' unless convert_to_scheduled.errors.any?),
+      data: {
+        action: 'submit->requests#submitForm',
+        show_hide_target: 'toggleable'
+      }
     }
-  }
-) do |form| %>
-  <%= form.input(
-    :scheduled_date,
-    as: :date,
-    html5: true,
-    label: false,
-    input_html: { min: Date.tomorrow }
+  ) do |form| %>
+    <%= form.input(
+      :scheduled_date,
+      as: :date,
+      html5: true,
+      label: false,
+      input_html: { min: Date.tomorrow }
+    ) %>
+    <%= form.submit %>
+  <% end %>
+  <%= content_tag(
+    :button,
+    t('to_dos.show.convert_to_scheduled'),
+    class: ('hidden' if convert_to_scheduled.errors.any?),
+    data: {
+      action: 'click->show-hide#toggle',
+      show_hide_target: 'toggleable'
+    }
   ) %>
-  <%= form.submit %>
 <% end %>

@@ -12,6 +12,7 @@ feature 'converting to-dos to scheduled', js: true do
     log_in(user)
     visit(list_to_dos_path(list))
     click_link(to_do.task)
+    click_button(I18n.t('to_dos.show.convert_to_scheduled'))
 
     fill_in(
       'convert_to_scheduled_scheduled_date',
@@ -31,6 +32,7 @@ feature 'converting to-dos to scheduled', js: true do
 
     log_in(user)
     visit(list_to_do_path(list, to_do))
+    click_button(I18n.t('to_dos.show.convert_to_scheduled'))
     click_button(I18n.t('helpers.submit.convert_to_scheduled.update'))
 
     expect(page).to have_content(I18n.t('errors.messages.blank'))
@@ -43,6 +45,7 @@ feature 'converting to-dos to scheduled', js: true do
 
     log_in(user)
     visit(list_to_do_path(list, to_do))
+    click_button(I18n.t('to_dos.show.convert_to_scheduled'))
 
     fill_in(
       'convert_to_scheduled_scheduled_date',
