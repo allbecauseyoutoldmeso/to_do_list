@@ -6,6 +6,6 @@ class ArchiveListsController < ApplicationController
   def update
     archive_list = ArchiveList.new(list)
     archive_list.save
-    render(json: to_dos_json)
+    render(json: lists_json)
   end
 end

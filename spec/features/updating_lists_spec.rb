@@ -5,16 +5,18 @@ require 'rails_helper'
 feature 'updating lists' do
   scenario 'user successfully archives a list', js: true do
     user = create(:user)
-    list = create(:list, user: user)
+    list_1 = create(:list, user: user)
+    list_2 = create(:list, user: user)
 
     log_in(user)
     visit(root_path)
 
-    within("#edit_archive_list_#{list.id}") do
+    within("#edit_archive_list_#{list_1.id}") do
       click_button(I18n.t('helpers.submit.archive_list.update'))
     end
 
-    expect(page).not_to have_selector('li', text: list.name)
+    expect(page).not_to have_selector('li', text: list_1.name)
+    expect(page).to have_selector('li', text: list_2.name)
   end
 
   scenario 'user successfully reactivates a list' do

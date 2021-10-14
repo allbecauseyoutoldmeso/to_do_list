@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ListsController < ApplicationController
+  include JsonResponsable
+
   def index
     @lists = current_user.lists.active.persisted
     @new_list = current_user.lists.new
@@ -20,17 +22,5 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:name, :state)
-  end
-
-  def lists_json(new_list)
-    {
-      partial: render_to_string(
-        partial: 'lists',
-        locals: {
-          lists: current_user.lists.active.persisted,
-          new_list: new_list
-        }
-      )
-    }
   end
 end

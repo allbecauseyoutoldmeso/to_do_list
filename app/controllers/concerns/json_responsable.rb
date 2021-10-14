@@ -41,4 +41,16 @@ module JsonResponsable
       )
     }
   end
+
+  def lists_json(new_list = current_user.lists.new)
+    {
+      partial: render_to_string(
+        partial: 'lists/lists',
+        locals: {
+          lists: current_user.lists.active.persisted,
+          new_list: new_list
+        }
+      )
+    }
+  end
 end

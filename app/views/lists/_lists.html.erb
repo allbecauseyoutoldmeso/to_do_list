@@ -1,6 +1,6 @@
 <%= content_tag(:div, data: { controller: 'requests' }) do %>
   <%= content_tag(:ul) do %>
-    <%= render(partial: 'list', collection: lists) %>
+    <%= render(partial: 'lists/list', collection: lists) %>
   <% end %>
   <%= simple_form_for(
     new_list,
