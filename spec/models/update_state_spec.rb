@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 describe UpdateState do
-  describe '#valid?' do
-    it 'is true for factory' do
-      update_state = build(:update_state)
-      expect(update_state.valid?).to eq(true)
+  it_behaves_like 'presentable' do
+    let(:presenter) { build(:update_state, state: ToDo.states[:done]) }
+
+    let(:expected_attributes) do
+      { state: 'done' }
     end
   end
 
@@ -32,18 +33,6 @@ describe UpdateState do
         [I18n.t('to_do.states.done'), 'done'],
         [I18n.t('to_do.states.priority'), 'priority']
       )
-    end
-  end
-
-  describe '#save' do
-    it 'updates to-do state' do
-      to_do = create(:to_do, state: ToDo.states[:to_do])
-      update_state = build(:update_state, to_do: to_do)
-      update_state.state = 'done'
-
-      update_state.save
-
-      expect(to_do.reload.state).to eq('done')
     end
   end
 end

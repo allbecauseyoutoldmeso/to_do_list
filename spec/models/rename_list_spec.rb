@@ -3,12 +3,15 @@
 require 'rails_helper'
 
 describe RenameList do
-  describe '#valid?' do
-    it 'is true for factory' do
-      rename_list = build(:rename_list)
-      expect(rename_list.valid?).to eq(true)
+  it_behaves_like 'presentable' do
+    let(:expected_attributes) do
+      { name: 'New Name' }
     end
 
+    let(:presenter) { build(:rename_list, expected_attributes) }
+  end
+
+  describe '#valid?' do
     it 'is false if name is not present' do
       rename_list = build(:rename_list, name: nil)
       expect(rename_list.valid?).to eq(false)
@@ -18,18 +21,6 @@ describe RenameList do
       ).to contain_exactly(
         I18n.t('errors.messages.blank')
       )
-    end
-  end
-
-  describe '#save' do
-    it 'updates list name' do
-      name = 'New Name'
-      list = create(:list)
-      rename_list = build(:rename_list, list: list, name: name)
-
-      rename_list.save
-
-      expect(list.reload.name).to eq(name)
     end
   end
 end

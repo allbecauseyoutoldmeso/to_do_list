@@ -8,6 +8,11 @@ describe ScheduledToDo do
   end
 
   describe '#valid?' do
+    it 'is true for factory' do
+      scheduled_to_do = build(:scheduled_to_do)
+      expect(scheduled_to_do.valid?).to eq(true)
+    end
+
     it 'is false if task is not present' do
       scheduled_to_do = build(:scheduled_to_do, task: nil)
       expect(scheduled_to_do.valid?).to eq(false)

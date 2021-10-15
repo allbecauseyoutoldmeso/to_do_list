@@ -4,10 +4,6 @@ require 'rails_helper'
 
 shared_examples_for 'schedulable' do
   describe '#valid?' do
-    it 'is true for factory' do
-      expect(presenter.valid?).to eq(true)
-    end
-
     it 'is false if scheduled_date is not present' do
       presenter.scheduled_date = nil
       expect(presenter.valid?).to eq(false)
