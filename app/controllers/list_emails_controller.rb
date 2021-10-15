@@ -13,7 +13,7 @@ class ListEmailsController < ApplicationController
 
   def list_email_form_json
     {
-      partial: render_to_string(
+      html: render_to_string(
         partial: 'list_emails/edit',
         locals: {
           list: list,

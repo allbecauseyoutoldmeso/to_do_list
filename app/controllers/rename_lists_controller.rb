@@ -22,7 +22,7 @@ class RenameListsController < ApplicationController
 
   def list_name_json(rename_list: RenameList.new(list))
     {
-      partial: render_to_string(
+      html: render_to_string(
         partial: 'to_dos/list_name',
         locals: {
           list: list.reload,

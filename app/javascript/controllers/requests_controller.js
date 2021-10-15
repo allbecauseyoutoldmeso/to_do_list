@@ -11,7 +11,7 @@ export default class extends Controller {
       url: form.action,
       data: new FormData(form),
       success: (data) => {
-        this.element.outerHTML = data.partial
+        this.element.outerHTML = data.html
       }
     })
   }

@@ -21,8 +21,8 @@ feature 'converting to-dos to scheduled', js: true do
 
     click_button(I18n.t('helpers.submit.convert_to_scheduled.update'))
 
-    expect(page).to have_selector('th', text: I18n.t('to_do.states.scheduled'))
-    expect(page).to have_selector('th', text: display_date(scheduled_date))
+    expect(page).to have_content(I18n.t('to_do.states.scheduled'))
+    expect(page).to have_content(display_date(scheduled_date))
   end
 
   scenario 'user submits form without scheduled date' do

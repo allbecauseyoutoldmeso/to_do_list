@@ -13,6 +13,6 @@ feature 'converting to-dos from scheduled', js: true do
     click_link(to_do.task)
     click_button(I18n.t('helpers.submit.convert_from_scheduled.update'))
 
-    expect(page).to have_selector('th', text: I18n.t('to_do.states.priority'))
+    expect(page).to have_content(I18n.t('to_do.states.priority'))
   end
 end
