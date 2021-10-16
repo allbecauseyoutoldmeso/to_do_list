@@ -4,7 +4,6 @@ class ConvertToScheduledController < ApplicationController
   include ToDoable
 
   def update
-    @convert_to_scheduled = ConvertToScheduled.new(to_do)
     @convert_to_scheduled.attributes = convert_to_scheduled_params
 
     if @convert_to_scheduled.save

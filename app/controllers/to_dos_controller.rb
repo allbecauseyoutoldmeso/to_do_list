@@ -17,12 +17,6 @@ class ToDosController < ApplicationController
     end
   end
 
-  def show
-    unless to_do.scheduled?
-      @convert_to_scheduled = ConvertToScheduled.new(to_do)
-    end
-  end
-
   private
 
   def to_do_params

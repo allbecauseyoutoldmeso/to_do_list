@@ -1,4 +1,27 @@
-<%= content_tag(:div, class: 'to-do-attribute') do %>
+<%= content_tag(
+  :div,
+  class: 'to-do-attribute',
+  data: { controller: 'show-hide' }
+) do %>
   <%= content_tag(:h2, I18n.t('to_dos.show.task')) %>
-  <%= to_do.task %>
+  <%= content_tag(
+    :div,
+    class: ('hidden' if update_task.errors.any?),
+    data: { show_hide_target: 'toggleable' }
+  ) do %>
+    <%= to_do.task %>
+  <% end %>
+  <%= render(
+    partial: 'update_tasks/edit',
+    locals: { list: list, update_task: update_task}
+  ) %>
+  <%= content_tag(
+    :button,
+    t('to_dos.show.update_task'),
+    class: ('hidden' if update_task.errors.any?),
+    data: {
+      action: 'click->show-hide#toggle',
+      show_hide_target: 'toggleable'
+    }
+  ) %>
 <% end %>

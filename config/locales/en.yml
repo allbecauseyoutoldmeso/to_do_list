@@ -39,6 +39,8 @@ en:
         create: Log In
       to_do:
         create: Add To-Do
+      update_task:
+        update: Update Task
   layouts:
     nav_bar:
       archive: Archived Lists
@@ -81,3 +83,4 @@ en:
       scheduled_date: Scheduled Date
       state: State
       task: Task
+      update_task: Update Task

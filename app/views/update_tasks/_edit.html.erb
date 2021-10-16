@@ -1,0 +1,13 @@
+<%= simple_form_for(
+  [list, update_task],
+  html: {
+    data: {
+      action: 'submit->requests#submitForm',
+      show_hide_target: 'toggleable'
+    },
+    class: ('hidden' unless update_task.errors.any?)
+  }
+) do |form| %>
+  <%= form.input(:task, label: false) %>
+  <%= form.submit %>
+<% end %>
