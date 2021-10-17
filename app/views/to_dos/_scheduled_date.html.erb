@@ -1,6 +1,6 @@
 <%= content_tag(:div, class: 'to-do-attribute') do %>
   <% if to_do.scheduled? %>
-    <%= content_tag(:h2, I18n.t('to_dos.show.scheduled_date')) %>
+    <%= content_tag(:h2, t('to_dos.show.scheduled_date')) %>
     <%= content_tag(:div, data: { controller: 'show-hide' }) do %>
       <%= content_tag(
         :div,

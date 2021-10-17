@@ -59,7 +59,6 @@ en:
       title: My Lists
   scheduled_to_dos:
     index:
-      back_to_list: Back To %{list}
       title: Scheduled To-Dos For %{list}
   simple_form:
     labels:
@@ -83,8 +82,6 @@ en:
       scheduled_to_dos: Scheduled To-Dos
       sending_email: Sending Email...
     show:
-      all_scheduled_to_dos: All Scheduled To-Dos For %{list}
-      all_to_dos: All To-Dos For %{list}
       convert_to_scheduled: Convert To Scheduled
       scheduled_date: Scheduled Date
       state: State

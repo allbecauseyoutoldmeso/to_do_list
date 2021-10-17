@@ -4,19 +4,11 @@
   data: { controller: 'requests' }
 ) do %>
   <%= content_tag(:h1, @to_do.task) %>
-  <% if @to_do.scheduled? %>
-    <%= link_to(
-      t('to_dos.show.all_scheduled_to_dos', list: @list.name),
-      list_scheduled_to_dos_path(@list),
-      class: 'action-item'
-    ) %>
-  <% else %>
-    <%= link_to(
-      t('to_dos.show.all_to_dos', list: @list.name),
-      list_to_dos_path(@list),
-      class: 'action-item'
-    ) %>
-  <% end %>
+  <%= link_to(
+    @list.name,
+    list_to_dos_path(@list),
+    class: 'action-item'
+  ) %>
   <%= render(
     partial: 'to_dos/task',
     locals: { list: @list, to_do: @to_do, update_task: @update_task }

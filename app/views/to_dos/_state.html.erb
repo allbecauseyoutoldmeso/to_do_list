@@ -1,4 +1,4 @@
 <%= content_tag(:div, class: 'to-do-attribute') do %>
-  <%= content_tag(:h2, I18n.t('to_dos.show.state')) %>
-  <%= I18n.t("to_do.states.#{to_do.state}") %>
+  <%= content_tag(:h2, t('to_dos.show.state')) %>
+  <%= content_tag(:div, t("to_do.states.#{to_do.state}")) %>
 <% end %>
