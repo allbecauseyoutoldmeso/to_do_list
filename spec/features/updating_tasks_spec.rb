@@ -10,8 +10,7 @@ feature 'updating tasks', js: true do
     task = 'New Task'
 
     log_in(user)
-    visit(list_to_dos_path(list))
-    click_link(to_do.task)
+    visit(list_to_do_path(list, to_do))
     click_button(I18n.t('to_dos.show.update_task'))
     fill_in('update_task_task', with: task)
     click_button(I18n.t('helpers.submit.update_task.update'))
@@ -25,8 +24,7 @@ feature 'updating tasks', js: true do
     to_do = create(:to_do, list: list)
 
     log_in(user)
-    visit(list_to_dos_path(list))
-    click_link(to_do.task)
+    visit(list_to_do_path(list, to_do))
     click_button(I18n.t('to_dos.show.update_task'))
     fill_in('update_task_task', with: '')
     click_button(I18n.t('helpers.submit.update_task.update'))

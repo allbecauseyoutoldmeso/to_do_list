@@ -1,0 +1,19 @@
+<%= simple_form_for(
+  [list, update_scheduled_date],
+  html: {
+    data: {
+      action: 'submit->requests#submitForm',
+      show_hide_target: 'toggleable'
+    },
+    class: ('hidden' unless update_scheduled_date.errors.any?)
+  }
+) do |form| %>
+  <%= form.input(
+    :scheduled_date,
+    as: :date,
+    html5: true,
+    label: false,
+    input_html: { min: Date.tomorrow }
+  ) %>
+  <%= form.submit %>
+<% end %>

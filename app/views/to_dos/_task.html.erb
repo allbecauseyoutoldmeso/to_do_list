@@ -6,11 +6,10 @@
   <%= content_tag(:h2, I18n.t('to_dos.show.task')) %>
   <%= content_tag(
     :div,
+    to_do.task,
     class: ('hidden' if update_task.errors.any?),
     data: { show_hide_target: 'toggleable' }
-  ) do %>
-    <%= to_do.task %>
-  <% end %>
+  ) %>
   <%= render(
     partial: 'update_tasks/edit',
     locals: { list: list, update_task: update_task}

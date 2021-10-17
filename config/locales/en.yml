@@ -15,6 +15,10 @@ en:
           attributes:
             base:
               invalid_credentials: invalid login credentials
+        update_scheduled_date:
+          attributes:
+            scheduled_date:
+              not_in_future: must be in the future
   helpers:
     submit:
       activate_list:
@@ -39,6 +43,8 @@ en:
         create: Log In
       to_do:
         create: Add To-Do
+      update_scheduled_date:
+        update: Update Scheduled Date
       update_task:
         update: Update Task
   layouts:
@@ -83,4 +89,5 @@ en:
       scheduled_date: Scheduled Date
       state: State
       task: Task
+      update_scheduled_date: Update Scheduled Date
       update_task: Update Task
