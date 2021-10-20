@@ -115,6 +115,7 @@ li {
 
 .list-actions {
   @include flex-direction-row;
+  justify-content: space-between;
 }
 
 .list-email {
