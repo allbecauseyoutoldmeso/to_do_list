@@ -20,8 +20,8 @@
   </head>
   <body>
     <%= render(partial: 'layouts/nav_bar') %>
-    <main>
+    <%= content_tag(:main, data: { controller: 'focus' }) do %>
       <%= yield %>
-    </main>
+    <% end %>
   </body>
 </html>

@@ -2,15 +2,5 @@
   <%= content_tag(:ul) do %>
     <%= render(partial: 'lists/list', collection: lists) %>
   <% end %>
-  <%= simple_form_for(
-    new_list,
-    html: {
-      data: {
-        action: 'submit->requests#submitForm'
-      }
-    }
-  ) do |form| %>
-    <%= form.input(:name, label: false) %>
-    <%= form.submit %>
-  <% end %>
+  <%= render(partial: 'lists/new', locals: { new_list: new_list }) %>
 <% end %>

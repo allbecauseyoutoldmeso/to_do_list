@@ -12,7 +12,19 @@ export default class extends Controller {
       data: new FormData(form),
       success: (data) => {
         this.element.outerHTML = data.html
+        this.refreshFocus()
       }
     })
+  }
+
+  refreshFocus() {
+    this.focusController().setFocus()
+  }
+
+  focusController() {
+    return this.application.getControllerForElementAndIdentifier(
+      document.getElementsByTagName('main')[0],
+      'focus'
+    )
   }
 }

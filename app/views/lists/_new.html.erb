@@ -1,5 +1,5 @@
 <%= simple_form_for(
-  [list, new_to_do],
+  new_list,
   html: {
     data: {
       action: 'submit->requests#submitForm'
@@ -7,7 +7,7 @@
   }
 ) do |form| %>
   <%= form.input(
-    :task,
+    :name,
     label: false,
     input_html: { data: { focus_target: 'focusable' } }
   ) %>
