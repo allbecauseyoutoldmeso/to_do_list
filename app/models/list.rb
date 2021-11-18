@@ -27,4 +27,13 @@ class List < ApplicationRecord
       ScheduledToDo.new(to_do)
     end
   end
+
+  def api_attributes
+    {
+      id: id,
+      name: name,
+      state: state,
+      to_dos: to_dos.map(&:api_attributes)
+    }
+  end
 end

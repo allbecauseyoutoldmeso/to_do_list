@@ -67,4 +67,20 @@ describe List do
       expect(list.scheduled_to_dos.last.id).to eq(to_do_1.id)
     end
   end
+
+  describe '#api_attributes' do
+    it 'returns attributes hash' do
+      list = create(:list)
+      to_do = create(:to_do, list: list)
+
+      expect(list.api_attributes).to eq(
+        {
+          id: list.id,
+          name: list.name,
+          state: list.state,
+          to_dos: [to_do.api_attributes]
+        }
+      )
+    end
+  end
 end

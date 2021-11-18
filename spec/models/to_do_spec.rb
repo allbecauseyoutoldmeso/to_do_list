@@ -99,4 +99,18 @@ describe ToDo do
       expect(described_class.due).to contain_exactly(to_do_1, to_do_2)
     end
   end
+
+  describe '#api_attributes' do
+    it 'returns attributes hash' do
+      to_do = create(:to_do)
+
+      expect(to_do.api_attributes).to eq(
+        {
+          id: to_do.id,
+          task: to_do.task,
+          state: to_do.state
+        }
+      )
+    end
+  end
 end

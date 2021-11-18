@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ActiveRecord::Schema.define(version: 20_211_002_152_527) do
+ActiveRecord::Schema.define(version: 20_211_118_103_658) do
   enable_extension 'plpgsql'
 
   create_table 'lists', force: :cascade do |t|
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20_211_002_152_527) do
 
   create_table 'users', force: :cascade do |t|
     t.string 'email'
-    t.string 'password'
     t.string 'password_digest'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'api_key'
   end
 end

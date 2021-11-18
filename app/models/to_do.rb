@@ -16,4 +16,12 @@ class ToDo < ApplicationRecord
   scope :expired, lambda {
     where(state: states[:archived], updated_at: ...EXPIRY_TIME.ago)
   }
+
+  def api_attributes
+    {
+      id: id,
+      task: task,
+      state: state
+    }
+  end
 end

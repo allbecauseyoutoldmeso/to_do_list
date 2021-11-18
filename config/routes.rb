@@ -23,4 +23,12 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create] do
     post :delete, on: :collection
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :lists, only: %i[show] do
+        resources :to_dos, only: %i[create]
+      end
+    end
+  end
 end
